@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": "769f1071-1148-4fd6-b26b-e9bdde9d241b",
+      "fname": "shahid ",
+      "lname": "malappuram",
+      "email": "shahid@gmail.com",
+      "password": "$2a$10$0LatUSUwcXt2r.pT1jBdYOiaLhQY.pRKd2viL6CnsHcGbdqHuOkdy",
+      "title": "MR"
+    },
+    {
+      "id": "fd1aac30-388d-4ec6-98b1-5b7ca1ba6d95",
+      "fname": "minhaj",
+      "lname": "k",
+      "email": "minhaj@email.com",
+      "password": "$2a$10$.M7VoBwr0rXUhg2eJttOveiEQfNGW1uix1scVgysjYXLEHlDMysWi",
+      "title": "MR"
+    },
+    {
+      "id": "2630c645-29d9-4e2f-9a4e-0685b188bcdc",
+      "fname": "Hisham",
+      "lname": "c",
+      "email": "hisham@gmail.com",
+      "password": "$2a$10$B0ieghH8qAiIG7iJWqT.guEUQwrRBlbU9IX/U1WBHqZpUh/RVtUHi",
+      "title": "MR"
+    },
+    {
+      "id": "5f67c1aa-b2f2-4b67-987c-4d3dcfe50fd6",
+      "fname": "abc",
+      "lname": "sdcv",
+      "email": "abc@gmail.com",
+      "password": "$2a$10$QbF7wmRSzrda9raG1Scfde9lOMXfZJ/rvq2dU/keOjc3MRHDAnbwu",
+      "title": "MR"
+    }
+  ]
+}
