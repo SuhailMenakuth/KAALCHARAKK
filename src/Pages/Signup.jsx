@@ -23,6 +23,7 @@ import ToggleButtons from '../Components/Buttons/ToggleButtons';
 import { registrationConstans } from '../Constants/index';
 import { registerUser, existingUser } from '../Services/Api';
 import { v4 as uuidv4 } from 'uuid';
+import Whishlist from './Whishlist';
 
 const initialValues = {
     fname: "",
@@ -46,6 +47,10 @@ const Signup = () => {
     const [emailExists, setEmailExists] = useState(false);  // New state to track email existence
     const navigate = useNavigate();
 
+
+
+
+
     const handleSubmit = async (values) => {
         try {
             const userId = uuidv4();
@@ -56,7 +61,10 @@ const Signup = () => {
                 lname,
                 email,
                 password,
-                title: activeDiv
+                title: activeDiv,
+                cart : [],
+                whishlist : [],
+                address : [],
             };
 
             // Check if the email already exists
@@ -76,6 +84,11 @@ const Signup = () => {
             console.error('Registration failed:', error);
         }
     };
+
+
+
+
+
 
     return (
         <div className='bg-slate-500 w-full h-screen flex'>

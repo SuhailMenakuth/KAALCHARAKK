@@ -1,5 +1,7 @@
 import {location , time, truck} from '../assets/Icons/index'
-import { loginImage } from '../assets/images/index'
+//import { loginImage } from 'public/assets/images/loginImage.webp'
+
+//login costant need to make correct its not importing from the index 
 
 
 export const registrationConstans = [
@@ -10,7 +12,7 @@ export const registrationConstans = [
 
 
 export const loginConstants = [
-    {image:loginImage}
+    { image: '/assets/images/loginImage.webp' }
 ]
 
 

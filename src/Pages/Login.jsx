@@ -1,9 +1,15 @@
-import React ,{useState} from 'react';
+// seting user id to localstorage for to handle individual cart and further use
+
+
+
+import React ,{useContext, useState} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { loginImage } from '../assets/images/index';
+// import { loginImage } from '../assets/images/index'; need to correct now using dierectly from the folder
 import { loginUser } from '../Services/Api';
 import { useNavigate } from 'react-router-dom';
+import { ProductDetails } from '../context/ProductContext';
+import { CartDetails } from '../context/CartContext';
 
 
 
@@ -11,6 +17,8 @@ const Login = () => {
 
   const [invalidmsg,setWrong]=useState(''); // to track the email or password wrong
   const navigate = useNavigate();
+  const { products } = useContext(ProductDetails)
+  const { fetchUser } = useContext(CartDetails)
 
 
 
@@ -26,6 +34,8 @@ const Login = () => {
 
 
 
+  console.log(products)
+
 
 
 
@@ -34,15 +44,17 @@ const Login = () => {
   const handleSubmit = async (values) => {
 
     const { email, password } = values;
-  
+ 
+    
     try {
-      const user = await loginUser({email, password});
+      const user = await loginUser({email, password}); // calling API services from the service folder 
       console.log('Login successful:', user);
-
-     navigate('/home')
+      localStorage.setItem('email', email); // seting loging information in local storage for to know has logged in .
+      
+     navigate('/landing')
     
     } catch (error) {
-      console.error( "thebncmd", error.message); 
+      console.error( "this is error msg ", error.message); 
       setWrong(error.message); // Seting error here
     }
   };
@@ -58,8 +70,8 @@ const Login = () => {
       <div className='w-1/2 h-screen bg-red-600 relative hidden lg:flex'>
         
         <div className='w-full h-full bg-gray-800 absolute  '>
-
-          <img src={loginImage} alt="loginImage"
+         {/* importing image directly from the folder this need to be correct */}
+          <img src="public/assets/LoginImage.webp" alt="loginImage"
           className="w-full h-full object-cover" />
 
         </div>

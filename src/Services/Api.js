@@ -1,7 +1,14 @@
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
+import { createContext } from 'react';
+
+
+
 
 const API_URL = 'http://localhost:3001/users'; 
+
+
+
 
 export const registerUser = async (userData) => {
     try {
@@ -54,6 +61,7 @@ try{
     console.log("Api response",response);
     
    const user = response.data[0]; // Assuming only one user per email
+   localStorage.setItem("id",user.id)
  
    if (!user) {
      throw new Error("user not found");
