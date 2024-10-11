@@ -4,6 +4,7 @@ import { Signup, Login, Landing, About, Cart} from './Pages/index'
 import {Hero, Nav, ProductCard} from './Components/index'
 import { ProductContext } from './context/ProductContext';
 import { CartContext } from './context/CartContext';
+import Checkout from './Pages/Checkout';
 
 
 
@@ -25,6 +26,7 @@ const App = () => {
         <Route path='/about' element={<About/>}/>
         <Route path='/nav' element={<Nav/>} />
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/checkout' element={<Checkout/>} />
       </Routes>
     </Router>
     </CartContext>

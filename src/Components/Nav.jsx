@@ -16,7 +16,7 @@ const Nav = () => {
     };
   
     return (
-      <nav className="bg-white  ">
+      <nav className="bg-white relative   ">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
 
@@ -31,7 +31,7 @@ const Nav = () => {
 
 
 
-            <div className="text-4xl tracking-tight font-bold font-palanquin lg:ml-14 text-greenDark">
+            <div className="text-4xl tracking-tighter font-bold font-palanquin lg:ml-14 text-greenDark">
               KAALCHARAKK
             </div>
 
@@ -60,8 +60,8 @@ const Nav = () => {
   
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden">
-            <div className="flex flex-col space-y-2 px-4 py-2">
+          <div className="md:hidden bg-white z-20">
+            <div className="flex flex-col space-y-2 px-4 py-2 absolute bg-white z-30 w-full">
               <a href="#" className="block text-black hover:text-greenDark">Home</a>
               <a href="#" className="block text-black hover:text-greenDark">Products</a>
               <a href="#" className="block text-black hover:text-greenDark">About</a>
@@ -76,14 +76,15 @@ const Nav = () => {
         <div className='bottomnav mx-auto px-4 hidden lg:block ' >
             <div className='flex items-center justify-center h-12 space-x-12'>
 
-                <Link to={''} className='text-black font-bold'>Home</Link>
-                <Link to={''} className='text-black font-bold'>Home</Link>
-                <Link to={''} className='text-black font-bold'>Home</Link>
-                <Link to={''} className='text-black font-bold'>Home</Link>
+                <Link to={''} className='text-black font-bold tracking-tighter '>WHAT'S NEW</Link>
+                <Link to={''} className='text-black font-bold tracking-tighter'>MEN</Link>
+                <Link to={''} className='text-black font-bold tracking-tighter'>WOMEN</Link>
+                <Link to={''} className='text-black font-bold tracking-tighter'>OUR STORY</Link>
+                <Link to={''} className='text-black font-bold tracking-tighter'>SHOE CARE</Link>
 
 
 
-            </div>
+            </div> 
 
         </div>
       </nav>

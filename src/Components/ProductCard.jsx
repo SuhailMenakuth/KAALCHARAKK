@@ -55,11 +55,7 @@ const ProductCard = () => {
                             </div>
 
 
-
-
-
                             <button className='w-4/5 bg-greenDark text-white '
-
                                 onClick={() => handleclick(product)}
                             >Add to Cart</button>
                             {/* Quantity select*/}

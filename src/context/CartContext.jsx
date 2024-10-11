@@ -86,8 +86,6 @@ useEffect(() => {
 
 
   // const addItem = async (item,quantity) => {
-    
-
   //   try{
       
   //     // const userEmail = localStorage.getItem('email')

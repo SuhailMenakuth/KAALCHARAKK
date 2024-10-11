@@ -38,7 +38,7 @@ const Hero = () => {
         >
           {carouselItems.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className='flex items-center justify-center h-full'>
+              <div className='flex items-center justify-center h-full z-0'>
                 <p className='text-gold font-montserrat font-bold text-md'>
                   {item.text}
                 </p>

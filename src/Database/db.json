@@ -22,7 +22,7 @@
               "offer": "20%",
               "title": "New Arrival"
             },
-            "quantity": 2
+            "quantity": 1
           }
         },
         {
@@ -39,7 +39,24 @@
               "offer": "30%",
               "title": "Best Seller"
             },
-            "quantity": 2
+            "quantity": 1
+          }
+        },
+        {
+          "item": {
+            "product": {
+              "id": "m-14-zxc",
+              "category": "men",
+              "name": "Nidasi",
+              "image": "/assets/images/sandals-men%20(14).webp",
+              "price": 14999,
+              "type": "sandals",
+              "size": 11,
+              "style": "manchester",
+              "offer": "10%",
+              "title": "Trending Now"
+            },
+            "quantity": 1
           }
         }
       ],
