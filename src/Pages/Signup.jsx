@@ -64,6 +64,7 @@ const Signup = () => {
                 title: activeDiv,
                 cart : [],
                 whishlist : [],
+                orders : [],
                 address : [],
             };
 

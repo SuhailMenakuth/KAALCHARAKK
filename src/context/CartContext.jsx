@@ -146,7 +146,8 @@ useEffect(() => {
 
 
   const removeItem = async (itemId) => {
-    const updatedCart = cartItems.filter(cartItem => cartItem.item.id !== itemId); //filtering with id 
+    const updatedCart = cartItems.filter(cartItem => cartItem.item.product.id !== itemId); //filtering with id 
+    
   
     try {
       const userId = localStorage.getItem("id"); // geting id from localstorage for patching  
@@ -214,7 +215,7 @@ useEffect(() => {
   
 
   return (
-    <CartDetails.Provider value={{ cartItems, addItem, removeItem, clearCart, fetchUser , incrementItem ,decrementItem }}>
+    <CartDetails.Provider value={{ cartItems,user, addItem, removeItem, clearCart, fetchUser , incrementItem ,decrementItem }}>
       {children}
     </CartDetails.Provider>
   );

@@ -43,7 +43,8 @@ const Login = () => {
 
   const handleSubmit = async (values) => {
 
-    const { email, password } = values;
+    const { email, password } = values
+    console.log("handle submit email"+email)
  
     
     try {
@@ -51,7 +52,7 @@ const Login = () => {
       console.log('Login successful:', user);
       localStorage.setItem('email', email); // seting loging information in local storage for to know has logged in .
       
-     navigate('/landing')
+     navigate('/')
     
     } catch (error) {
       console.error( "this is error msg ", error.message); 
@@ -63,7 +64,7 @@ const Login = () => {
 
 
   return (
-    <div className='w-full h-screen bg-red-300 flex '>
+    <div className='w-full h-screen  flex '>
 
       {/* image container */}
 
@@ -71,7 +72,7 @@ const Login = () => {
         
         <div className='w-full h-full bg-gray-800 absolute  '>
          {/* importing image directly from the folder this need to be correct */}
-          <img src="public/assets/LoginImage.webp" alt="loginImage"
+          <img src="public/assets/images/LoginImage.webp" alt="loginImage"
           className="w-full h-full object-cover" />
 
         </div>
@@ -82,14 +83,14 @@ const Login = () => {
 
 
       {/* login container */}
-      <div className=' h-screen bg-greenDark flex justify-center items-center lg:w-1/2  '>
+      <div className=' h-screen flex justify-center items-center lg:w-1/2  '>
 
       <div className='w-[90%]   flex-col items-center justify-center'>
 
         <div className=' text-center space-y-6 mb-10 relative'>
         
-          <h1  className='text-center font-palanquin font-bold text-gold text-2xl'>LOGIN</h1>
-          <p className='text-center font-montserrat text-gold'>If you have an account with us, please log in.</p>
+          <h1  className='text-center font-palanquin font-bold text-black text-2xl'>LOGIN</h1>
+          <p className='text-center font-montserrat text-black'>If you have an account with us, please log in.</p>
         </div>
 
         <div>
@@ -117,17 +118,17 @@ const Login = () => {
            type="email"
            name="email"
            placeholder="Email address"
-           className={`border border-greenLight bg-greenLight placeholder:text-white w-full mb-4 p-2 ${errors.email && touched.email ? 'border-red-500' : ''}`}
+           className={`border border-greenDark   placeholder:text-slate-400 w-full mb-4 p-2 ${errors.email && touched.email ? 'border-red-500' : ''}`}
            />
 
            <Field
            type="password"
            name="password"
            placeholder="password"
-           className={`border border-greenLight bg-greenLight placeholder:text-white w-full mb-4 p-2 ${errors.email && touched.email ? 'border-red-500' : ''}`}
+           className={`border border-greenDark    placeholder:text-slate-400 w-full mb-4 p-2 ${errors.email && touched.email ? 'border-red-500' : ''}`}
            />
           <button type="submit"
-          className={"w-full mb-4  p-2 bg-gold border border-greenLight rounded-md"}
+          className={"w-full mb-4  p-2 bg-greenDark border border-greenDark rounded-md font-bold text-white"}
           >LOGIN</button>
         </Form>
          )} 
@@ -135,15 +136,15 @@ const Login = () => {
 
         </div>
 
-        <hr className='border border-greenLight mt-4 mb-10' />
+        <hr className='border border-greenDark mt-4 mb-10' />
 
         <div className='w-full  flex flex-col justify-center items-center'>
 
           <h1 
-          className='text-center font-palanquin font-bold text-gold text-2xl mt-4 mb-4'>Still don't have an account?</h1>
-          <p className='text-center font-montserrat text-gold mb-4'>Create a Birkenstock customer account to make it easier to see an overview of your orders, track your orders and make checking out even faster.</p>
+          className='text-center font-palanquin font-bold text-black text-2xl mt-4 mb-4'>Still don't have an account?</h1>
+          <p className='text-center font-montserrat text-black mb-4'>Create a Kaalcharakk customer account to make it easier to see an overview of your orders, track your orders and make checking out even faster.</p>
           <button type="submit"
-          className={"w-full mb-4  p-2  border border-gold hover:bg-gold rounded-md"}
+          className={"w-full mb-4  p-2  border border-greenDark bg-greenDark hover:bg-greenLight font-bold text-white rounded-md"}
              onClick={()=>navigate('/signup')}
           
           >REGISTER</button>

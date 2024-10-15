@@ -1,10 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Signup, Login, Landing, About, Cart} from './Pages/index'
-import {Hero, Nav, ProductCard} from './Components/index'
+import {Footer, Hero, Nav, ProductCard} from './Components/index'
 import { ProductContext } from './context/ProductContext';
 import { CartContext } from './context/CartContext';
 import Checkout from './Pages/Checkout';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+ 
 
 
 
@@ -27,6 +30,7 @@ const App = () => {
         <Route path='/nav' element={<Nav/>} />
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/checkout' element={<Checkout/>} />
+        <Route path='/footer' element={<Footer/>} />
       </Routes>
     </Router>
     </CartContext>
