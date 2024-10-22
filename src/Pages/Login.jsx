@@ -49,15 +49,24 @@ const Login = () => {
     
     try {
       const user = await loginUser({email, password}); // calling API services from the service folder 
-      console.log('Login successful:', user);
-      localStorage.setItem('email', email); // seting loging information in local storage for to know has logged in .
-      
-     navigate('/')
-    
-    } catch (error) {
-      console.error( "this is error msg ", error.message); 
-      setWrong(error.message); // Seting error here
-    }
+      if(user.role == 'admin'){
+        navigate('/admin');
+      }
+      else{
+
+        if(user.isBlocked == true ){
+          throw new Error(" You are being blocked");
+        }
+        console.log('Login successful:', user);
+        localStorage.setItem('email', email); // seting loging information in local storage for to know has logged in .
+        
+        navigate('/')
+        
+      }
+      } catch (error) {
+        console.error( "this is error msg ", error.message); 
+        setWrong(error.message); // Seting error here
+      }
   };
   
 
@@ -128,7 +137,7 @@ const Login = () => {
            className={`border border-greenDark    placeholder:text-slate-400 w-full mb-4 p-2 ${errors.email && touched.email ? 'border-red-500' : ''}`}
            />
           <button type="submit"
-          className={"w-full mb-4  p-2 bg-greenDark border border-greenDark rounded-md font-bold text-white"}
+          className={"w-full mb-4  p-2 bg-greenDark border border-greenDark rounded-md font-bold text-white hover:bg-opacity-85"}
           >LOGIN</button>
         </Form>
          )} 
@@ -144,7 +153,7 @@ const Login = () => {
           className='text-center font-palanquin font-bold text-black text-2xl mt-4 mb-4'>Still don't have an account?</h1>
           <p className='text-center font-montserrat text-black mb-4'>Create a Kaalcharakk customer account to make it easier to see an overview of your orders, track your orders and make checking out even faster.</p>
           <button type="submit"
-          className={"w-full mb-4  p-2  border border-greenDark bg-greenDark hover:bg-greenLight font-bold text-white rounded-md"}
+          className={"w-full mb-4  p-2  border border-greenDark bg-greenDark hover:bg-opacity-95 font-bold text-white rounded-md"}
              onClick={()=>navigate('/signup')}
           
           >REGISTER</button>

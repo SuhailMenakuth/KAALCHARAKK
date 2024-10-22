@@ -55,6 +55,7 @@ const Signup = () => {
         try {
             const userId = uuidv4();
             const { fname, lname, email, password } = values;
+            
             const userData = {
                 id: userId,
                 fname,
@@ -62,6 +63,7 @@ const Signup = () => {
                 email,
                 password,
                 title: activeDiv,
+                isBlocked: false,
                 cart : [],
                 whishlist : [],
                 orders : [],
@@ -92,15 +94,15 @@ const Signup = () => {
 
 
     return (
-        <div className='bg-slate-500 w-full h-screen flex'>
+        <div className='bg-slate-500 w-full h-screen flex '>
             {/* Left div with benefits baner */}
-            <div className='w-1/2 bg-greenLight h-screen hidden lg:flex'>
+            <div className='w-1/2 bg-gold h-screen hidden lg:flex'>
                 <ul className='mt-20 ml-12'>
-                    <h1 className='font-montserrat font-bold text-gold text-2xl'>YOUR BENEFITS</h1>
+                    <h1 className='font-montserrat font-bold text-greenDark text-2xl'>YOUR BENEFITS</h1>
                     {registrationConstans.map((elem) => (
                         <li className='flex items-center mt-6' key={elem.id}>
-                            <img src={elem.icon} className='w-8 h-8 mr-2 text-gold fill-current' alt="icon" />
-                            <h1 className='text-center text-gold'>{elem.label}</h1>
+                            <img src={elem.icon} className='w-8 h-8 mr-2 text-greenDark fill-current' alt="icon" />
+                            <h1 className='text-center text-GreenDark'>{elem.label}</h1>
                         </li>
                     ))}
                 </ul>
@@ -110,8 +112,8 @@ const Signup = () => {
             <div className='flex justify-center items-center lg:w-1/2 bg-greenDark h-screen'>
                 <div className='w-full h-4/5 rounded-lg p-6 flex flex-col items-center justify-center'>
                     <div className='w-full h-36 flex flex-col justify-center mb-10'>
-                        <h1 className='text-center font-montserrat font-bold text-gold text-2xl'>CREATE AN ACCOUNT</h1>
-                        <p className='text-center text-sm text-gold'>Enter your information below to proceed. If you already have an account, please log in instead.</p>
+                        <h1 className='text-center font-montserrat font-bold text-greenDark text-2xl'>CREATE AN ACCOUNT</h1>
+                        <p className='text-center text-sm text-GreenDark'>Enter your information below to proceed. If you already have an account, please log in instead.</p>
                     </div>
 
                     {/* Error message for existing email */}
@@ -170,7 +172,7 @@ const Signup = () => {
                                 <button
                                     type="submit"
                                     // className="  w-full p-2 bg-gold text-white rounded hover:bg-greenLight"
-                                    className="relative w-full p-2 bg-gold text-white rounded bg-gradient-to-b from-gold to-gold transition-all duration-500 ease-out hover:bg-gradient-to-t hover:from-greenLight hover:to-greenLight"
+                                    className="relative w-full p-2 bg-greenLight text-white rounded bg-gradient-to-b from-go"
 
                                 >
                                     Create An Account

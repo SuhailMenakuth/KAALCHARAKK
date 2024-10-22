@@ -63,9 +63,35 @@ const Checkout = () => {
         email: user.email || '',
       }));
     }
-  }, [user]);
+  }, [user,cartItems]);
 
+
+  const updateProductStocksAndSold = async () => {
+    try {
+      const updatePromises = cartItems.map((cartItem) => {
+        const productId = cartItem.item.product.id;
+        const updatedStock = cartItem.item.product.stock - cartItem.item.quantity ;
+        const UpdatedSold = cartItem.item.product.sold + cartItem.item.quantity;
   
+        return axios.put(`http://localhost:3001/products/${productId}`, {
+          ...cartItem.item.product,
+           stock: updatedStock,
+           sold: UpdatedSold,
+        });
+      });
+  
+      const response = await Promise.all(updatePromises); // Execute all updates in parallel
+      console.log("promises reaposnse" , response);
+      console.log('All product stocks updated successfully.');
+    } catch (error) {
+      console.error('Error updating product stock:', error);
+    }
+  };
+
+ 
+  
+  
+   
 
 
 const handleSubmit = async (values) => {
@@ -96,12 +122,13 @@ const handleSubmit = async (values) => {
     // Create updated user object with new order and address
     const updatedUser = {
       ...user,
-      orders: [...user.orders, newOrder], // Add new order to existing orders
+      orders: [...(user.orders || []), newOrder], // Add new order to existing orders
       address: [...user.address, newAddress], // Add new address to existing addresses
       cart: [], // Clear the cart after checkout
     };
     // Make a pTCH request to update the user's data in the JSON server
     await axios.patch(`http://localhost:3001/users/${user.id}`, updatedUser);
+    await updateProductStocksAndSold();
 
     //used for delaying
     setTimeout(() => {

@@ -8,7 +8,7 @@ export default {
     extend: {
       colors:{
         gold: '#fff',
-        greenDark: '#2d4537',
+        greenDark:  '#2d4537',
         greenLight: '#798645',
       },
       fontFamily :{

@@ -25,25 +25,36 @@
 
 
 
-import React, { useContext, useState } from 'react';
-import { Hero, Modal, Nav, ProductCard } from '../Components/index';
+import React, { useContext, useState, useEffect } from 'react';
+import { Footer, Hero, Modal, Nav, ProductCard } from '../Components/index';
 import { ProductDetails } from '../context/ProductContext';
+import { CartDetails } from '../context/CartContext';
 
 const Landing = () => {
   const { products } = useContext(ProductDetails);
+  const {fetchUser , cartItems} = useContext(CartDetails);
   const [filter, setFilter] = useState('');
   const [searchQuery, setSearchQuery] = useState(''); // State for search query
+
+
+  useEffect(() => {
+    const userEmail = localStorage.getItem('email');
+    if(userEmail){
+      fetchUser(userEmail);
+    }
+  }, [cartItems]);
+
+
+
+  
 
   return (
     <div className="w-full h-full flex flex-col ">
       
-      <Nav setFilter={setFilter} setSearchQuery={setSearchQuery} />
-      <div className='mt-20'>
+      <Nav setFilter={setFilter} />
       <Hero />
-      
-
-      <ProductCard catagory={filter} searchQuery={searchQuery} />
-      </div>
+      <ProductCard catagory={filter} />
+      <Footer/>
 
 
       

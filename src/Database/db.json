@@ -7,41 +7,58 @@
       "email": "yoosha@gmail.com",
       "password": "$2a$10$s0y7B4VPVGaFICShrLfIIep73BIYgCWb0IVdLgQ4wBECBAgO/kUXq",
       "title": "MR",
+      "cart": [],
+      "whishlist": [],
+      "address": [
+        {
+          "firstName": "Suhail",
+          "lastName": "Mk",
+          "email": "yoosha@gmail.com",
+          "phone": "7594882023",
+          "address": "Menakuth house , elamkulam, maplapuram ,kerala",
+          "state": "Kerala",
+          "city": "Perinthalmanna",
+          "country": "IN"
+        }
+      ],
+      "orders": [
+        {
+          "orderId": "1729410584897",
+          "items": [
+            {
+              "item": {
+                "product": {
+                  "id": "w-7-cme",
+                  "category": "women",
+                  "name": "Sanam",
+                  "image": "/assets/images/sandals-women%20(7).webp",
+                  "price": 15999,
+                  "type": "sandals",
+                  "size": 10,
+                  "style": "manchester",
+                  "offer": "20%",
+                  "title": "Hot Item",
+                  "stock": 9
+                },
+                "quantity": 1
+              }
+            }
+          ],
+          "total": 15999,
+          "paymentMethod": "payu",
+          "orderDate": "10/20/2024"
+        }
+      ],
+      "isBlocked": false
+    },
+    {
+      "id": "6de3a588-fa8d-4061-a140-65a66f4cc093",
+      "fname": "suhail",
+      "lname": "m",
+      "email": "suhail@gmail.com",
+      "password": "$2a$10$z/l7L2XXkQZTk/AMHg/K5.W.eQPCXbcN56JOOXnQOTpaffro8S6CO",
+      "title": null,
       "cart": [
-        {
-          "item": {
-            "product": {
-              "id": "m-1-qw",
-              "category": "men",
-              "name": "Gizeh",
-              "image": "/assets/images/sandals-men%20(21).webp",
-              "price": 13333,
-              "type": "sandals",
-              "size": 8,
-              "style": "arizona",
-              "offer": "20%",
-              "title": "New Arrival"
-            },
-            "quantity": 2
-          }
-        },
-        {
-          "item": {
-            "product": {
-              "id": "m-2-wer",
-              "category": "men",
-              "name": "Arizona Essentials",
-              "image": "/assets/images/sandals-men%20(1).webp",
-              "price": 13333,
-              "type": "sandals",
-              "size": 9,
-              "style": "arizona",
-              "offer": "30%",
-              "title": "Best Seller"
-            },
-            "quantity": 1
-          }
-        },
         {
           "item": {
             "product": {
@@ -58,32 +75,20 @@
             },
             "quantity": 1
           }
-        }
-      ],
-      "whishlist": [],
-      "address": []
-    },
-    {
-      "id": "6de3a588-fa8d-4061-a140-65a66f4cc093",
-      "fname": "suhail",
-      "lname": "m",
-      "email": "suhail@gmail.com",
-      "password": "$2a$10$z/l7L2XXkQZTk/AMHg/K5.W.eQPCXbcN56JOOXnQOTpaffro8S6CO",
-      "title": null,
-      "cart": [
+        },
         {
           "item": {
             "product": {
-              "id": "m-1-qw",
+              "id": "m-5-gbh",
               "category": "men",
-              "name": "Gizeh",
-              "image": "/assets/images/sandals-men%20(21).webp",
-              "price": 13333,
+              "name": "Arizona Soft Footbed",
+              "image": "/assets/images/sandals-men%20(4).webp",
+              "price": 14999,
               "type": "sandals",
               "size": 8,
               "style": "arizona",
-              "offer": "20%",
-              "title": "New Arrival"
+              "offer": "30%",
+              "title": "Customer Favorite"
             },
             "quantity": 1
           }
@@ -91,48 +96,6 @@
       ],
       "whishlist": [],
       "orders": [
-        {
-          "orderId": "1728731966099",
-          "items": [
-            {
-              "item": {
-                "product": {
-                  "id": "m-2-wer",
-                  "category": "men",
-                  "name": "Arizona Essentials",
-                  "image": "/assets/images/sandals-men%20(1).webp",
-                  "price": 13333,
-                  "type": "sandals",
-                  "size": 9,
-                  "style": "arizona",
-                  "offer": "30%",
-                  "title": "Best Seller"
-                },
-                "quantity": 2
-              }
-            },
-            {
-              "item": {
-                "product": {
-                  "id": "m-1-qw",
-                  "category": "men",
-                  "name": "Gizeh",
-                  "image": "/assets/images/sandals-men%20(21).webp",
-                  "price": 13333,
-                  "type": "sandals",
-                  "size": 8,
-                  "style": "arizona",
-                  "offer": "20%",
-                  "title": "New Arrival"
-                },
-                "quantity": 1
-              }
-            }
-          ],
-          "total": 39999,
-          "paymentMethod": "cod",
-          "orderDate": "10/12/2024"
-        },
         {
           "orderId": "1728745737409",
           "items": [
@@ -157,42 +120,95 @@
           "total": 13333,
           "paymentMethod": "cod",
           "orderDate": "10/12/2024"
-        },
+        }
+      ],
+      "address": [
         {
-          "orderId": "1728886043415",
+          "firstName": "Suhail",
+          "lastName": "Mk",
+          "email": "suhail@gmail.com",
+          "phone": "4567890",
+          "address": "Menakuth house , elamkulam, maplapuram ,kerala",
+          "state": "Kerala",
+          "city": "Perinthalmanna",
+          "country": "IN"
+        }
+      ],
+      "wishlist": {
+        "id": "m-2-wer",
+        "category": "men",
+        "name": "Arizona Essentials",
+        "image": "/assets/images/sandals-men%20(1).webp",
+        "price": 13333,
+        "type": "sandals",
+        "size": 9,
+        "style": "arizona",
+        "offer": "30%",
+        "title": "Best Seller"
+      },
+      "isBlocked": false
+    },
+    {
+      "id": "a17162cf-5bf9-4150-9c17-beed63d1a929",
+      "fname": "nifras",
+      "lname": "bridge",
+      "email": "nifras@gmail.com",
+      "password": "$2a$10$VmGB5AqIcemfZNJNWef2NenWL./A8.9y2ZzNLFbTQ14NMA42o5djW",
+      "title": "MR",
+      "cart": [
+        {
+          "item": {
+            "product": {
+              "id": "m-3-ert",
+              "category": "men",
+              "name": "Tatacoa Men",
+              "image": "/assets/images/sandals-men%20(2).webp",
+              "price": 13333,
+              "type": "sandals",
+              "size": 9,
+              "style": "arizona",
+              "offer": "30%",
+              "title": "Top Rated"
+            },
+            "quantity": 1
+          }
+        }
+      ],
+      "whishlist": [],
+      "orders": [],
+      "address": [],
+      "isBlocked": false
+    },
+    {
+      "id": "803b3161-beeb-4b1b-89a0-19db7288aa93",
+      "fname": "Abc",
+      "lname": "def",
+      "email": "abc@gmail.com",
+      "password": "$2a$10$uMA1kaUhS9F5IfK6wDNVCuu3J.lqIjXIOVt6LNXk0SKfFDvYPI39O",
+      "title": "MR",
+      "isBlocked": false,
+      "cart": [],
+      "whishlist": [],
+      "orders": [
+        {
+          "orderId": "1729431332524",
           "items": [
             {
               "item": {
                 "product": {
-                  "id": "m-2-wer",
+                  "id": "m-7-hnm",
                   "category": "men",
-                  "name": "Arizona Essentials",
-                  "image": "/assets/images/sandals-men%20(1).webp",
-                  "price": 13333,
+                  "name": "Brazil Men",
+                  "image": "/assets/images/sandals-men%20(6).webp",
+                  "price": 19000,
                   "type": "sandals",
-                  "size": 9,
-                  "style": "arizona",
-                  "offer": "30%",
-                  "title": "Best Seller"
+                  "size": 6,
+                  "style": "atacama",
+                  "offer": "50%",
+                  "title": "Best Seller",
+                  "stock": 10
                 },
-                "quantity": 2
-              }
-            },
-            {
-              "item": {
-                "product": {
-                  "id": "m-3-ert",
-                  "category": "men",
-                  "name": "Tatacoa Men",
-                  "image": "/assets/images/sandals-men%20(2).webp",
-                  "price": 13333,
-                  "type": "sandals",
-                  "size": 9,
-                  "style": "arizona",
-                  "offer": "30%",
-                  "title": "Top Rated"
-                },
-                "quantity": 2
+                "quantity": 1
               }
             },
             {
@@ -207,259 +223,34 @@
                   "size": 6,
                   "style": "arizona",
                   "offer": "50%",
-                  "title": "Trending Now"
-                },
-                "quantity": 1
-              }
-            },
-            {
-              "item": {
-                "product": {
-                  "id": "m-7-hnm",
-                  "category": "men",
-                  "name": "Brazil Men",
-                  "image": "/assets/images/sandals-men%20(6).webp",
-                  "price": 19000,
-                  "type": "sandals",
-                  "size": 6,
-                  "style": "atacama",
-                  "offer": "50%",
-                  "title": "Best Seller"
-                },
-                "quantity": 1
-              }
-            },
-            {
-              "item": {
-                "product": {
-                  "id": "m-9-tyu",
-                  "category": "men",
-                  "name": "Manchest Red",
-                  "image": "/assets/images/sandals-men%20(8).webp",
-                  "price": 18999,
-                  "type": "sandals",
-                  "size": 7,
-                  "style": "manchester",
-                  "offer": "10%",
-                  "title": "Hot Item"
-                },
-                "quantity": 1
-              }
-            },
-            {
-              "item": {
-                "product": {
-                  "id": "m-10-wer",
-                  "category": "men",
-                  "name": "Manchest Caramu",
-                  "image": "/assets/images/sandals-men%20(9).webp",
-                  "price": 23999,
-                  "type": "sandals",
-                  "size": 10,
-                  "style": "manchester",
-                  "offer": "40%",
-                  "title": "Limited Edition"
-                },
-                "quantity": 1
-              }
-            },
-            {
-              "item": {
-                "product": {
-                  "id": "m-11-cvb",
-                  "category": "men",
-                  "name": "Los Angles Ci",
-                  "image": "/assets/images/sandals-men%20(10).webp",
-                  "price": 17999,
-                  "type": "sandals",
-                  "size": 8,
-                  "style": "manchester",
-                  "offer": "10%",
-                  "title": "Top Rated"
-                },
-                "quantity": 1
-              }
-            },
-            {
-              "item": {
-                "product": {
-                  "id": "m-12-rty",
-                  "category": "men",
-                  "name": "Pmna",
-                  "image": "/assets/images/sandals-men%20(11).webp",
-                  "price": 16999,
-                  "type": "sandals",
-                  "size": 7,
-                  "style": "manchester",
-                  "offer": "10%",
-                  "title": "Best Seller"
+                  "title": "Trending Now",
+                  "stock": 11
                 },
                 "quantity": 1
               }
             }
           ],
-          "total": 165327,
-          "paymentMethod": "cod",
-          "orderDate": "10/14/2024"
-        },
-        {
-          "orderId": "1728886679035",
-          "items": [
-            {
-              "item": {
-                "product": {
-                  "id": "m-2-wer",
-                  "category": "men",
-                  "name": "Arizona Essentials",
-                  "image": "/assets/images/sandals-men%20(1).webp",
-                  "price": 13333,
-                  "type": "sandals",
-                  "size": 9,
-                  "style": "arizona",
-                  "offer": "30%",
-                  "title": "Best Seller"
-                },
-                "quantity": 1
-              }
-            }
-          ],
-          "total": 13333,
+          "total": 33999,
           "paymentMethod": "payu",
-          "orderDate": "10/14/2024"
+          "orderDate": "10/20/2024"
         },
         {
-          "orderId": "1728887465272",
+          "orderId": "1729431791887",
           "items": [
             {
               "item": {
                 "product": {
-                  "id": "m-3-ert",
+                  "id": "m-20-ijn",
                   "category": "men",
-                  "name": "Tatacoa Men",
-                  "image": "/assets/images/sandals-men%20(2).webp",
-                  "price": 13333,
-                  "type": "sandals",
-                  "size": 9,
-                  "style": "arizona",
-                  "offer": "30%",
-                  "title": "Top Rated"
-                },
-                "quantity": 1
-              }
-            },
-            {
-              "item": {
-                "product": {
-                  "id": "m-8-iop",
-                  "category": "men",
-                  "name": "Boston Bold Gap",
-                  "image": "/assets/images/sandals-men%20(7).webp",
+                  "name": "Yeify",
+                  "image": "/assets/images/sandals-men%20(20).webp",
                   "price": 19999,
                   "type": "sandals",
-                  "size": 8,
-                  "style": "atacama",
+                  "size": 7,
+                  "style": "arizona",
                   "offer": "50%",
-                  "title": "New Arrival"
-                },
-                "quantity": 1
-              }
-            }
-          ],
-          "total": 33332,
-          "paymentMethod": "cod",
-          "orderDate": "10/14/2024"
-        },
-        {
-          "orderId": "1728887677069",
-          "items": [
-            {
-              "item": {
-                "product": {
-                  "id": "m-1-qw",
-                  "category": "men",
-                  "name": "Gizeh",
-                  "image": "/assets/images/sandals-men%20(21).webp",
-                  "price": 13333,
-                  "type": "sandals",
-                  "size": 8,
-                  "style": "arizona",
-                  "offer": "20%",
-                  "title": "New Arrival"
-                },
-                "quantity": 1
-              }
-            }
-          ],
-          "total": 13333,
-          "paymentMethod": "cod",
-          "orderDate": "10/14/2024"
-        },
-        {
-          "orderId": "1728887759687",
-          "items": [
-            {
-              "item": {
-                "product": {
-                  "id": "m-2-wer",
-                  "category": "men",
-                  "name": "Arizona Essentials",
-                  "image": "/assets/images/sandals-men%20(1).webp",
-                  "price": 13333,
-                  "type": "sandals",
-                  "size": 9,
-                  "style": "arizona",
-                  "offer": "30%",
-                  "title": "Best Seller"
-                },
-                "quantity": 1
-              }
-            }
-          ],
-          "total": 13333,
-          "paymentMethod": "payu",
-          "orderDate": "10/14/2024"
-        },
-        {
-          "orderId": "1728888292189",
-          "items": [
-            {
-              "item": {
-                "product": {
-                  "id": "m-4-dfg",
-                  "category": "men",
-                  "name": "Tatacoa Men",
-                  "image": "/assets/images/sandals-men%20(3).webp",
-                  "price": 12999,
-                  "type": "sandals",
-                  "size": 9,
-                  "style": "arizona",
-                  "offer": "20%",
-                  "title": "Limited Edition"
-                },
-                "quantity": 1
-              }
-            }
-          ],
-          "total": 12999,
-          "paymentMethod": "cod",
-          "orderDate": "10/14/2024"
-        },
-        {
-          "orderId": "1728902255280",
-          "items": [
-            {
-              "item": {
-                "product": {
-                  "id": "m-3-ert",
-                  "category": "men",
-                  "name": "Tatacoa Men",
-                  "image": "/assets/images/sandals-men%20(2).webp",
-                  "price": 13333,
-                  "type": "sandals",
-                  "size": 9,
-                  "style": "arizona",
-                  "offer": "30%",
-                  "title": "Top Rated"
+                  "title": "Best Seller",
+                  "stock": 19
                 },
                 "quantity": 1
               }
@@ -467,94 +258,190 @@
             {
               "item": {
                 "product": {
-                  "id": "m-2-wer",
+                  "id": "m-19-okm",
                   "category": "men",
-                  "name": "Arizona Essentials",
-                  "image": "/assets/images/sandals-men%20(1).webp",
-                  "price": 13333,
+                  "name": "Chemera",
+                  "image": "/assets/images/sandals-men%20(19).webp",
+                  "price": 14888,
                   "type": "sandals",
-                  "size": 9,
-                  "style": "arizona",
-                  "offer": "30%",
-                  "title": "Best Seller"
+                  "size": 7,
+                  "style": "Montenegro",
+                  "offer": "70%",
+                  "title": "New Arrival",
+                  "stock": 11
                 },
                 "quantity": 1
               }
             }
           ],
-          "total": 26666,
+          "total": 34887,
           "paymentMethod": "payu",
-          "orderDate": "10/14/2024"
+          "orderDate": "10/20/2024"
         },
         {
-          "orderId": "1728913978272",
+          "orderId": "1729520453452",
           "items": [
             {
               "item": {
                 "product": {
-                  "id": "m-3-ert",
-                  "category": "men",
-                  "name": "Tatacoa Men",
-                  "image": "/assets/images/sandals-men%20(2).webp",
-                  "price": 13333,
+                  "id": "w-6-qew",
+                  "category": "women",
+                  "name": "Zibee",
+                  "image": "/assets/images/sandals-women%20(6).webp",
+                  "price": 14999,
                   "type": "sandals",
-                  "size": 9,
-                  "style": "arizona",
-                  "offer": "30%",
-                  "title": "Top Rated"
-                },
-                "quantity": 5
-              }
-            },
-            {
-              "item": {
-                "product": {
-                  "id": "m-2-wer",
-                  "category": "men",
-                  "name": "Arizona Essentials",
-                  "image": "/assets/images/sandals-men%20(1).webp",
-                  "price": 13333,
-                  "type": "sandals",
-                  "size": 9,
-                  "style": "arizona",
-                  "offer": "30%",
-                  "title": "Best Seller"
+                  "size": 10,
+                  "style": "malappuram",
+                  "offer": "20%",
+                  "title": "Trending Now",
+                  "stock": 9,
+                  "sold": 29
                 },
                 "quantity": 1
               }
             }
           ],
-          "total": 79998,
+          "total": 14999,
+          "paymentMethod": "payu",
+          "orderDate": "10/21/2024"
+        },
+        {
+          "orderId": "1729520643134",
+          "items": [
+            {
+              "item": {
+                "product": {
+                  "id": "w-6-qew",
+                  "category": "women",
+                  "name": "Zibee",
+                  "image": "/assets/images/sandals-women%20(6).webp",
+                  "price": 14999,
+                  "type": "sandals",
+                  "size": 10,
+                  "style": "malappuram",
+                  "offer": "20%",
+                  "title": "Trending Now",
+                  "stock": 9,
+                  "sold": 29
+                },
+                "quantity": 1
+              }
+            }
+          ],
+          "total": 14999,
+          "paymentMethod": "payu",
+          "orderDate": "10/21/2024"
+        },
+        {
+          "orderId": "1729520707523",
+          "items": [
+            {
+              "item": {
+                "product": {
+                  "id": "w-6-qew",
+                  "category": "women",
+                  "name": "Zibee",
+                  "image": "/assets/images/sandals-women%20(6).webp",
+                  "price": 14999,
+                  "type": "sandals",
+                  "size": 10,
+                  "style": "malappuram",
+                  "offer": "20%",
+                  "title": "Trending Now",
+                  "stock": 9,
+                  "sold": 29
+                },
+                "quantity": 1
+              }
+            }
+          ],
+          "total": 14999,
           "paymentMethod": "cod",
-          "orderDate": "10/14/2024"
+          "orderDate": "10/21/2024"
         },
         {
-          "orderId": "1728914985589",
+          "orderId": "1729520798141",
           "items": [
             {
               "item": {
                 "product": {
-                  "id": "m-2-wer",
-                  "category": "men",
-                  "name": "Arizona Essentials",
-                  "image": "/assets/images/sandals-men%20(1).webp",
-                  "price": 13333,
+                  "id": "w-6-qew",
+                  "category": "women",
+                  "name": "Zibee",
+                  "image": "/assets/images/sandals-women%20(6).webp",
+                  "price": 14999,
                   "type": "sandals",
-                  "size": 9,
-                  "style": "arizona",
-                  "offer": "30%",
-                  "title": "Best Seller"
+                  "size": 10,
+                  "style": "malappuram",
+                  "offer": "20%",
+                  "title": "Trending Now",
+                  "stock": 9,
+                  "sold": 29
                 },
                 "quantity": 1
               }
             }
           ],
-          "total": 13333,
-          "paymentMethod": "payu",
-          "orderDate": "10/14/2024"
+          "total": 14999,
+          "paymentMethod": "cod",
+          "orderDate": "10/21/2024"
         },
         {
-          "orderId": "1728916168743",
+          "orderId": "1729520867012",
+          "items": [
+            {
+              "item": {
+                "product": {
+                  "id": "w-6-qew",
+                  "category": "women",
+                  "name": "Zibee",
+                  "image": "/assets/images/sandals-women%20(6).webp",
+                  "price": 14999,
+                  "type": "sandals",
+                  "size": 10,
+                  "style": "malappuram",
+                  "offer": "20%",
+                  "title": "Trending Now",
+                  "stock": 9,
+                  "sold": 29
+                },
+                "quantity": 1
+              }
+            }
+          ],
+          "total": 14999,
+          "paymentMethod": "payu",
+          "orderDate": "10/21/2024"
+        },
+        {
+          "orderId": "1729520970546",
+          "items": [
+            {
+              "item": {
+                "product": {
+                  "id": "w-6-qew",
+                  "category": "women",
+                  "name": "Zibee",
+                  "image": "/assets/images/sandals-women%20(6).webp",
+                  "price": 14999,
+                  "type": "sandals",
+                  "size": 10,
+                  "style": "malappuram",
+                  "offer": "20%",
+                  "title": "Trending Now",
+                  "stock": 9,
+                  "sold": 29
+                },
+                "quantity": 1
+              }
+            }
+          ],
+          "total": 14999,
+          "paymentMethod": "cod",
+          "orderDate": "10/21/2024"
+        },
+        {
+          "orderId": "1729521025750",
           "items": [
             {
               "item": {
@@ -568,7 +455,171 @@
                   "size": 8,
                   "style": "arizona",
                   "offer": "30%",
-                  "title": "Customer Favorite"
+                  "title": "Customer Favorite",
+                  "stock": 1,
+                  "sold": 4
+                },
+                "quantity": 1
+              }
+            }
+          ],
+          "total": 14999,
+          "paymentMethod": "cod",
+          "orderDate": "10/21/2024"
+        },
+        {
+          "orderId": "1729521160484",
+          "items": [
+            {
+              "item": {
+                "product": {
+                  "id": "w-6-qew",
+                  "category": "women",
+                  "name": "Zibee",
+                  "image": "/assets/images/sandals-women%20(6).webp",
+                  "price": 14999,
+                  "type": "sandals",
+                  "size": 10,
+                  "style": "malappuram",
+                  "offer": "20%",
+                  "title": "Trending Now",
+                  "stock": 9,
+                  "sold": 29
+                },
+                "quantity": 1
+              }
+            }
+          ],
+          "total": 14999,
+          "paymentMethod": "cod",
+          "orderDate": "10/21/2024"
+        },
+        {
+          "orderId": "1729521288138",
+          "items": [
+            {
+              "item": {
+                "product": {
+                  "id": "w-6-qew",
+                  "category": "women",
+                  "name": "Zibee",
+                  "image": "/assets/images/sandals-women%20(6).webp",
+                  "price": 14999,
+                  "type": "sandals",
+                  "size": 10,
+                  "style": "malappuram",
+                  "offer": "20%",
+                  "title": "Trending Now",
+                  "stock": 9,
+                  "sold": 29
+                },
+                "quantity": 1
+              }
+            }
+          ],
+          "total": 14999,
+          "paymentMethod": "cod",
+          "orderDate": "10/21/2024"
+        },
+        {
+          "orderId": "1729521329588",
+          "items": [
+            {
+              "item": {
+                "product": {
+                  "id": "w-6-qew",
+                  "category": "women",
+                  "name": "Zibee",
+                  "image": "/assets/images/sandals-women%20(6).webp",
+                  "price": 14999,
+                  "type": "sandals",
+                  "size": 10,
+                  "style": "malappuram",
+                  "offer": "20%",
+                  "title": "Trending Now",
+                  "stock": 8,
+                  "sold": 30
+                },
+                "quantity": 1
+              }
+            }
+          ],
+          "total": 14999,
+          "paymentMethod": "cod",
+          "orderDate": "10/21/2024"
+        },
+        {
+          "orderId": "1729521369191",
+          "items": [
+            {
+              "item": {
+                "product": {
+                  "id": "w-6-qew",
+                  "category": "women",
+                  "name": "Zibee",
+                  "image": "/assets/images/sandals-women%20(6).webp",
+                  "price": 14999,
+                  "type": "sandals",
+                  "size": 10,
+                  "style": "malappuram",
+                  "offer": "20%",
+                  "title": "Trending Now",
+                  "stock": 8,
+                  "sold": 30
+                },
+                "quantity": 1
+              }
+            }
+          ],
+          "total": 14999,
+          "paymentMethod": "cod",
+          "orderDate": "10/21/2024"
+        },
+        {
+          "orderId": "1729521403915",
+          "items": [
+            {
+              "item": {
+                "product": {
+                  "id": "w-6-qew",
+                  "category": "women",
+                  "name": "Zibee",
+                  "image": "/assets/images/sandals-women%20(6).webp",
+                  "price": 14999,
+                  "type": "sandals",
+                  "size": 10,
+                  "style": "malappuram",
+                  "offer": "20%",
+                  "title": "Trending Now",
+                  "stock": 7,
+                  "sold": 31
+                },
+                "quantity": 1
+              }
+            }
+          ],
+          "total": 14999,
+          "paymentMethod": "cod",
+          "orderDate": "10/21/2024"
+        },
+        {
+          "orderId": "1729521593231",
+          "items": [
+            {
+              "item": {
+                "product": {
+                  "id": "w-6-qew",
+                  "category": "women",
+                  "name": "Zibee",
+                  "image": "/assets/images/sandals-women%20(6).webp",
+                  "price": 14999,
+                  "type": "sandals",
+                  "size": 10,
+                  "style": "malappuram",
+                  "offer": "20%",
+                  "title": "Trending Now",
+                  "stock": 7,
+                  "sold": 31
                 },
                 "quantity": 1
               }
@@ -576,35 +627,96 @@
           ],
           "total": 14999,
           "paymentMethod": "payu",
-          "orderDate": "10/14/2024"
+          "orderDate": "10/21/2024"
+        },
+        {
+          "orderId": "1729521722546",
+          "items": [
+            {
+              "item": {
+                "product": {
+                  "id": "w-6-qew",
+                  "category": "women",
+                  "name": "Zibee",
+                  "image": "/assets/images/sandals-women%20(6).webp",
+                  "price": 14999,
+                  "type": "sandals",
+                  "size": 10,
+                  "style": "malappuram",
+                  "offer": "20%",
+                  "title": "Trending Now",
+                  "stock": 6,
+                  "sold": 32
+                },
+                "quantity": 1
+              }
+            }
+          ],
+          "total": 14999,
+          "paymentMethod": "cod",
+          "orderDate": "10/21/2024"
+        },
+        {
+          "orderId": "1729521767690",
+          "items": [
+            {
+              "item": {
+                "product": {
+                  "id": "w-6-qew",
+                  "category": "women",
+                  "name": "Zibee",
+                  "image": "/assets/images/sandals-women%20(6).webp",
+                  "price": 14999,
+                  "type": "sandals",
+                  "size": 10,
+                  "style": "malappuram",
+                  "offer": "20%",
+                  "title": "Trending Now",
+                  "stock": 6,
+                  "sold": 32
+                },
+                "quantity": 1
+              }
+            }
+          ],
+          "total": 14999,
+          "paymentMethod": "cod",
+          "orderDate": "10/21/2024"
+        },
+        {
+          "orderId": "1729521797775",
+          "items": [
+            {
+              "item": {
+                "product": {
+                  "id": "w-6-qew",
+                  "category": "women",
+                  "name": "Zibee",
+                  "image": "/assets/images/sandals-women%20(6).webp",
+                  "price": 14999,
+                  "type": "sandals",
+                  "size": 10,
+                  "style": "malappuram",
+                  "offer": "20%",
+                  "title": "Trending Now",
+                  "stock": 6,
+                  "sold": 32
+                },
+                "quantity": 1
+              }
+            }
+          ],
+          "total": 14999,
+          "paymentMethod": "cod",
+          "orderDate": "10/21/2024"
         }
       ],
       "address": [
         {
-          "firstName": "suhail",
-          "lastName": "m",
-          "email": "suhail@gmail.com",
-          "phone": "7594882023",
-          "address": "menakuth  house ",
-          "state": "kerala",
-          "city": "pmna",
-          "country": "IN"
-        },
-        {
-          "firstName": "suhail",
-          "lastName": "m",
-          "email": "suhail@gmail.com",
-          "phone": "7594882023",
-          "address": "menakuth house",
-          "state": "kerala ",
-          "city": "pmna",
-          "country": "IN"
-        },
-        {
           "firstName": "Suhail",
           "lastName": "Mk",
-          "email": "suhail@gmail.com",
-          "phone": "7594882023",
+          "email": "abc@gmail.com",
+          "phone": "1234567890",
           "address": "Menakuth house , elamkulam, maplapuram ,kerala",
           "state": "Kerala",
           "city": "Perinthalmanna",
@@ -613,8 +725,8 @@
         {
           "firstName": "Suhail",
           "lastName": "Mk",
-          "email": "suhail@gmail.com",
-          "phone": "123456789",
+          "email": "abc@gmail.com",
+          "phone": "123456782345",
           "address": "Menakuth house , elamkulam, maplapuram ,kerala",
           "state": "Kerala",
           "city": "Perinthalmanna",
@@ -623,9 +735,9 @@
         {
           "firstName": "Suhail",
           "lastName": "Mk",
-          "email": "suhail@gmail.com",
-          "phone": "12345678",
-          "address": "weuytrew",
+          "email": "abc@gmail.com",
+          "phone": "1234567890",
+          "address": "Menakuth house , elamkulam, maplapuram ,kerala",
           "state": "Kerala",
           "city": "Perinthalmanna",
           "country": "IN"
@@ -633,7 +745,7 @@
         {
           "firstName": "Suhail",
           "lastName": "Mk",
-          "email": "suhail@gmail.com",
+          "email": "abc@gmail.com",
           "phone": "13456778",
           "address": "Menakuth house , elamkulam, maplapuram ,kerala",
           "state": "Kerala",
@@ -643,8 +755,8 @@
         {
           "firstName": "Suhail",
           "lastName": "Mk",
-          "email": "suhail@gmail.com",
-          "phone": "12345678",
+          "email": "abc@gmail.com",
+          "phone": "12345",
           "address": "Menakuth house , elamkulam, maplapuram ,kerala",
           "state": "Kerala",
           "city": "Perinthalmanna",
@@ -653,8 +765,8 @@
         {
           "firstName": "Suhail",
           "lastName": "Mk",
-          "email": "suhail@gmail.com",
-          "phone": "12345678",
+          "email": "abc@gmail.com",
+          "phone": "13456778",
           "address": "Menakuth house , elamkulam, maplapuram ,kerala",
           "state": "Kerala",
           "city": "Perinthalmanna",
@@ -663,7 +775,27 @@
         {
           "firstName": "Suhail",
           "lastName": "Mk",
-          "email": "suhail@gmail.com",
+          "email": "abc@gmail.com",
+          "phone": "1234567",
+          "address": "Menakuth house , elamkulam, maplapuram ,kerala",
+          "state": "Kerala",
+          "city": "Perinthalmanna",
+          "country": "IN"
+        },
+        {
+          "firstName": "Suhail",
+          "lastName": "Mk",
+          "email": "abc@gmail.com",
+          "phone": "12367890",
+          "address": "Menakuth house , elamkulam, maplapuram ,kerala",
+          "state": "Kerala",
+          "city": "Perinthalmanna",
+          "country": "IN"
+        },
+        {
+          "firstName": "Suhail",
+          "lastName": "Mk",
+          "email": "abc@gmail.com",
           "phone": "1234567890",
           "address": "Menakuth house , elamkulam, maplapuram ,kerala",
           "state": "Kerala",
@@ -673,7 +805,17 @@
         {
           "firstName": "Suhail",
           "lastName": "Mk",
-          "email": "suhail@gmail.com",
+          "email": "abc@gmail.com",
+          "phone": "13456778",
+          "address": "Menakuth house , elamkulam, maplapuram ,kerala",
+          "state": "Kerala",
+          "city": "Perinthalmanna",
+          "country": "IN"
+        },
+        {
+          "firstName": "Suhail",
+          "lastName": "Mk",
+          "email": "abc@gmail.com",
           "phone": "1234567890",
           "address": "Menakuth house , elamkulam, maplapuram ,kerala",
           "state": "Kerala",
@@ -683,7 +825,47 @@
         {
           "firstName": "Suhail",
           "lastName": "Mk",
-          "email": "suhail@gmail.com",
+          "email": "abc@gmail.com",
+          "phone": "1234567809",
+          "address": "1234567890",
+          "state": "Kerala",
+          "city": "Perinthalmanna",
+          "country": "IN"
+        },
+        {
+          "firstName": "Suhail",
+          "lastName": "Mk",
+          "email": "abc@gmail.com",
+          "phone": "123456789",
+          "address": "Menakuth house , elamkulam, maplapuram ,kerala",
+          "state": "Kerala",
+          "city": "Perinthalmanna",
+          "country": "IN"
+        },
+        {
+          "firstName": "Suhail",
+          "lastName": "Mk",
+          "email": "abc@gmail.com",
+          "phone": "1234567890",
+          "address": "Menakuth house , elamkulam, maplapuram ,kerala",
+          "state": "Kerala",
+          "city": "Perinthalmanna",
+          "country": "IN"
+        },
+        {
+          "firstName": "Suhail",
+          "lastName": "Mk",
+          "email": "abc@gmail.com",
+          "phone": "1234567890",
+          "address": "Menakuth house , elamkulam, maplapuram ,kerala",
+          "state": "Kerala",
+          "city": "Perinthalmanna",
+          "country": "IN"
+        },
+        {
+          "firstName": "Suhail",
+          "lastName": "Mk",
+          "email": "abc@gmail.com",
           "phone": "12345678",
           "address": "Menakuth house , elamkulam, maplapuram ,kerala",
           "state": "Kerala",
@@ -693,65 +875,37 @@
         {
           "firstName": "Suhail",
           "lastName": "Mk",
-          "email": "suhail@gmail.com",
-          "phone": "7594882023",
+          "email": "abc@gmail.com",
+          "phone": "12345678",
+          "address": "Menakuth house , elamkulam, maplapuram ,kerala",
+          "state": "Kerala",
+          "city": "Perinthalmanna",
+          "country": "IN"
+        },
+        {
+          "firstName": "Suhail",
+          "lastName": "Mk",
+          "email": "abc@gmail.com",
+          "phone": "1234567",
           "address": "Menakuth house , elamkulam, maplapuram ,kerala",
           "state": "Kerala",
           "city": "Perinthalmanna",
           "country": "IN"
         }
       ]
+    },
+    {
+      "id": "ee362c0e-7252-48e6-b616-57ebbaba136b",
+      "fname": "admin",
+      "lname": "1",
+      "email": "admin@gmail.com",
+      "password": "$2a$10$iqh5sMc0EqZC8yacW7bcku/j7G4m9qsUTlLSsZZMNGuE7gWoWqxfe",
+      "title": "MR",
+      "isBlocked": false,
+      "role": "admin"
     }
   ],
   "products": [
-    {
-      "id": "m-1-qw",
-      "category": "men",
-      "name": "Gizeh",
-      "image": "/assets/images/sandals-men%20(21).webp",
-      "price": 13333,
-      "type": "sandals",
-      "size": 8,
-      "style": "arizona",
-      "offer": "20%",
-      "title": "New Arrival"
-    },
-    {
-      "id": "m-2-wer",
-      "category": "men",
-      "name": "Arizona Essentials",
-      "image": "/assets/images/sandals-men%20(1).webp",
-      "price": 13333,
-      "type": "sandals",
-      "size": 9,
-      "style": "arizona",
-      "offer": "30%",
-      "title": "Best Seller"
-    },
-    {
-      "id": "m-3-ert",
-      "category": "men",
-      "name": "Tatacoa Men",
-      "image": "/assets/images/sandals-men%20(2).webp",
-      "price": 13333,
-      "type": "sandals",
-      "size": 9,
-      "style": "arizona",
-      "offer": "30%",
-      "title": "Top Rated"
-    },
-    {
-      "id": "m-4-dfg",
-      "category": "men",
-      "name": "Tatacoa Men",
-      "image": "/assets/images/sandals-men%20(3).webp",
-      "price": 12999,
-      "type": "sandals",
-      "size": 9,
-      "style": "arizona",
-      "offer": "20%",
-      "title": "Limited Edition"
-    },
     {
       "id": "m-5-gbh",
       "category": "men",
@@ -762,7 +916,9 @@
       "size": 8,
       "style": "arizona",
       "offer": "30%",
-      "title": "Customer Favorite"
+      "title": "Customer Favorite",
+      "stock": 0,
+      "sold": 4
     },
     {
       "id": "m-6-mnb",
@@ -774,7 +930,9 @@
       "size": 6,
       "style": "arizona",
       "offer": "50%",
-      "title": "Trending Now"
+      "title": "Trending Now",
+      "stock": 10,
+      "sold": 23
     },
     {
       "id": "m-7-hnm",
@@ -786,7 +944,9 @@
       "size": 6,
       "style": "atacama",
       "offer": "50%",
-      "title": "Best Seller"
+      "title": "Best Seller",
+      "stock": 9,
+      "sold": 14
     },
     {
       "id": "m-8-iop",
@@ -798,7 +958,9 @@
       "size": 8,
       "style": "atacama",
       "offer": "50%",
-      "title": "New Arrival"
+      "title": "New Arrival",
+      "stock": 11,
+      "sold": 23
     },
     {
       "id": "m-9-tyu",
@@ -810,7 +972,9 @@
       "size": 7,
       "style": "manchester",
       "offer": "10%",
-      "title": "Hot Item"
+      "title": "Hot Item",
+      "stock": 7,
+      "sold": 22
     },
     {
       "id": "m-10-wer",
@@ -822,7 +986,9 @@
       "size": 10,
       "style": "manchester",
       "offer": "40%",
-      "title": "Limited Edition"
+      "title": "Limited Edition",
+      "stock": 13,
+      "sold": 25
     },
     {
       "id": "m-11-cvb",
@@ -834,19 +1000,9 @@
       "size": 8,
       "style": "manchester",
       "offer": "10%",
-      "title": "Top Rated"
-    },
-    {
-      "id": "m-12-rty",
-      "category": "men",
-      "name": "Pmna",
-      "image": "/assets/images/sandals-men%20(11).webp",
-      "price": 16999,
-      "type": "sandals",
-      "size": 7,
-      "style": "manchester",
-      "offer": "10%",
-      "title": "Best Seller"
+      "title": "Top Rated",
+      "stock": 15,
+      "sold": 22
     },
     {
       "id": "m-13-bnm",
@@ -858,7 +1014,9 @@
       "size": 8,
       "style": "manchester",
       "offer": "30%",
-      "title": "Customer Favorite"
+      "title": "Customer Favorite",
+      "stock": 16,
+      "sold": 0
     },
     {
       "id": "m-14-zxc",
@@ -870,7 +1028,9 @@
       "size": 11,
       "style": "manchester",
       "offer": "10%",
-      "title": "Trending Now"
+      "title": "Trending Now",
+      "stock": 13,
+      "sold": 32
     },
     {
       "id": "m-15-bnm",
@@ -882,7 +1042,9 @@
       "size": 10,
       "style": "Malappuram",
       "offer": "50%",
-      "title": "New Arrival"
+      "title": "New Arrival",
+      "stock": 18,
+      "sold": 15
     },
     {
       "id": "m-16-qwe",
@@ -894,7 +1056,9 @@
       "size": 7,
       "style": "Malappuram",
       "offer": "10%",
-      "title": "Hot Item"
+      "title": "Hot Item",
+      "stock": 9,
+      "sold": 5
     },
     {
       "id": "m-17-ctf",
@@ -906,7 +1070,9 @@
       "size": 8,
       "style": "Malappuram",
       "offer": "20%",
-      "title": "Top Rated"
+      "title": "Top Rated",
+      "stock": 12,
+      "sold": 23
     },
     {
       "id": "m-18-ikm",
@@ -918,7 +1084,9 @@
       "size": 8,
       "style": "Montenegro",
       "offer": "10%",
-      "title": "Limited Edition"
+      "title": "Limited Edition",
+      "stock": 16,
+      "sold": 17
     },
     {
       "id": "m-19-okm",
@@ -930,7 +1098,9 @@
       "size": 7,
       "style": "Montenegro",
       "offer": "70%",
-      "title": "New Arrival"
+      "title": "New Arrival",
+      "stock": 10,
+      "sold": 9
     },
     {
       "id": "m-20-ijn",
@@ -942,7 +1112,9 @@
       "size": 7,
       "style": "arizona",
       "offer": "50%",
-      "title": "Best Seller"
+      "title": "Best Seller",
+      "stock": 18,
+      "sold": 4
     },
     {
       "id": "m-21-tyh",
@@ -954,7 +1126,9 @@
       "size": 7,
       "style": "dublin",
       "offer": "30%",
-      "title": "Top Rated"
+      "title": "Top Rated",
+      "stock": 16,
+      "sold": 22
     },
     {
       "id": "m-22-ert",
@@ -966,7 +1140,9 @@
       "size": 10,
       "style": "dublin",
       "offer": "20%",
-      "title": "Trending Now"
+      "title": "Trending Now",
+      "stock": 18,
+      "sold": 11
     },
     {
       "id": "m-23-zsa",
@@ -978,7 +1154,9 @@
       "size": 10,
       "style": "arizona",
       "offer": "20%",
-      "title": "Limited Edition"
+      "title": "Limited Edition",
+      "stock": 1,
+      "sold": 11
     },
     {
       "id": "m-24-pli",
@@ -990,7 +1168,9 @@
       "size": 10,
       "style": "dublin",
       "offer": "20%",
-      "title": "Customer Favorite"
+      "title": "Customer Favorite",
+      "stock": 5,
+      "sold": 12
     },
     {
       "id": "m-25-wer",
@@ -1002,7 +1182,9 @@
       "size": 10,
       "style": "malappuram",
       "offer": "20%",
-      "title": "Best Seller"
+      "title": "Best Seller",
+      "stock": 4,
+      "sold": 17
     },
     {
       "id": "m-26-fgr",
@@ -1014,19 +1196,9 @@
       "size": 10,
       "style": "Dublin",
       "offer": "20%",
-      "title": "Trending Now"
-    },
-    {
-      "id": "m-27-cxh",
-      "category": "men",
-      "name": "Gikal",
-      "image": "/assets/images/shoes-men%20(5).webp",
-      "price": 16999,
-      "type": "shoe",
-      "size": 10,
-      "style": "Dublin",
-      "offer": "20%",
-      "title": "New Arrival"
+      "title": "Trending Now",
+      "stock": 9,
+      "sold": 6
     },
     {
       "id": "m-28-jtp",
@@ -1038,7 +1210,9 @@
       "size": 10,
       "style": "malappuram",
       "offer": "20%",
-      "title": "Hot Item"
+      "title": "Hot Item",
+      "stock": 8,
+      "sold": 32
     },
     {
       "id": "m-29-eva",
@@ -1050,19 +1224,23 @@
       "size": 10,
       "style": "arizona",
       "offer": "20%",
-      "title": "Top Rated"
+      "title": "Top Rated",
+      "stock": 11,
+      "sold": 17
     },
     {
       "id": "m-30-mts",
       "category": "men",
       "name": "Gikal",
       "image": "/assets/images/shoes-men%20(8).webp",
-      "price": 16999,
+      "price": 23999,
       "type": "shoe",
       "size": 10,
       "style": "manchester",
       "offer": "20%",
-      "title": "Customer Favorite"
+      "title": "Customer Favorite",
+      "stock": 5,
+      "sold": 33
     },
     {
       "id": "w-1-rdk",
@@ -1074,19 +1252,23 @@
       "size": 10,
       "style": "manchester",
       "offer": "20%",
-      "title": "New Arrival"
+      "title": "New Arrival",
+      "stock": 9,
+      "sold": 55
     },
     {
       "id": "w-2-gsd",
       "category": "women",
       "name": "Gikal",
       "image": "/assets/images/sandals-women%20(2).webp",
-      "price": 16999,
+      "price": 11999,
       "type": "sandals",
       "size": 10,
       "style": "manchester",
       "offer": "20%",
-      "title": "Best Seller"
+      "title": "Best Seller",
+      "stock": 3,
+      "sold": 62
     },
     {
       "id": "w-3-kdd",
@@ -1098,7 +1280,9 @@
       "size": 10,
       "style": "malappuram",
       "offer": "20%",
-      "title": "Top Rated"
+      "title": "Top Rated",
+      "stock": 2,
+      "sold": 13
     },
     {
       "id": "w-4-mmm",
@@ -1110,7 +1294,9 @@
       "size": 10,
       "style": "arizona",
       "offer": "20%",
-      "title": "Limited Edition"
+      "title": "Limited Edition",
+      "stock": 17,
+      "sold": 34
     },
     {
       "id": "w-5-ppp",
@@ -1122,31 +1308,23 @@
       "size": 10,
       "style": "mallapuram",
       "offer": "20%",
-      "title": "Customer Favorite"
+      "title": "Customer Favorite",
+      "stock": 3,
+      "sold": 22
     },
     {
       "id": "w-6-qew",
       "category": "women",
       "name": "Zibee",
       "image": "/assets/images/sandals-women%20(6).webp",
-      "price": 16999,
+      "price": 14999,
       "type": "sandals",
       "size": 10,
       "style": "malappuram",
       "offer": "20%",
-      "title": "Trending Now"
-    },
-    {
-      "id": "w-7-cme",
-      "category": "women",
-      "name": "Sanam",
-      "image": "/assets/images/sandals-women%20(7).webp",
-      "price": 16999,
-      "type": "sandals",
-      "size": 10,
-      "style": "manchester",
-      "offer": "20%",
-      "title": "Hot Item"
+      "title": "Trending Now",
+      "stock": 5,
+      "sold": 33
     }
   ]
 }

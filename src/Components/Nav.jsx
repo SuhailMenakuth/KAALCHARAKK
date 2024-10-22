@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState,useEffect,useRef } from 'react'
 
 import { Link, useNavigate } from 'react-router-dom';
 import { CartDetails } from '../context/CartContext';
@@ -8,21 +8,30 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';              
 import 'swiper/css/navigation';    
 import 'swiper/css/pagination';
-import Modal from 'react-modal';
+import Search from './Search';
 
 
 
 
 
 
-const Nav = ({ setFilter, setSearchQuery }) => {
- const { cartItems } = useContext(CartDetails);
-  const [isOpen, setIsOpen] = useState(false);
+
+const Nav = ({ setFilter }) => {
+  const { cartItems ,setCartItems } = useContext(CartDetails);
+  const [isOpen, setIsOpen] = useState(false); // mobile menu
   const [showSearch, setShowSearch] = useState(false); // Toggle search input
-  const [search, setSearch] = useState('');
   const [dropdownOpen, setDropdownOpen] = useState(false); //togle for logout and login
+  const [user, setUser] = useState('');
+  const searchRef = useRef(null); // Reference to the search component
   const navigate = useNavigate();
 
+  useEffect(()=>{
+   const id = localStorage.getItem('id')
+    setUser(id || null) ;
+  },[user])
+  
+  
+  
   
   const carouselItems = [
     { text: "Welcome to our site!" },
@@ -30,32 +39,31 @@ const Nav = ({ setFilter, setSearchQuery }) => {
     { text: "Check out our latest collections!" },
     { text: "Enjoy shopping with us!" },
   ];
-
-
-
+  
+  
+  
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-const handleSearchChange = (e) => {
-  const query = e.target.value;
-  setSearch(query);
-  setSearchQuery(query); // Update search query in parent component
-};
+ 
+  
+  // logout 
+  const handleLogout = () => {
+    localStorage.removeItem('id'); 
+    localStorage.removeItem('email'); 
+    setCartItems([]);
+    setDropdownOpen(false);
+
+    // navigate('/login'); 
+  };
+  
 
 
-// logout 
-const handleLogout = () => {
-  localStorage.removeItem('id'); 
-  localStorage.removeItem('email'); 
-  // navigate('/login'); 
-};
 
-if(isOpen){
-  <Modal isOpen={isOpen}/>
-}
 
+  
   return (
-    <nav className=" w-full bg-white  z-50  fixed   ">
+    <nav className=" w-full bg-white z-50  sticky top-0   ">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
 
@@ -83,8 +91,11 @@ if(isOpen){
           <div className="flex  space-x-4">
 
             <img src="public/assets/images/user.png" alt=""
-              className='hidden md:flex' 
+              className={`hidden md:flex cursor-pointer`} 
               onClick={() => setDropdownOpen(!dropdownOpen)}
+              onMouseEnter={() => setDropdownOpen(true)} 
+             // onMouseLeave={() => setDropdownOpen(false)}
+    
               />
 
             <img src="public/assets/images/love.png" alt=""
@@ -117,17 +128,38 @@ if(isOpen){
 
       {/* Dropdown Menu for Profile */}
       {dropdownOpen && (
-        <div className="absolute top-11 right-24 mt-2 bg-greenDark border border-greenDark shadow-lg rounded-md z-20">
-          <div className="flex flex-col p-2">
-            <Link to="/login" className="block text-white hover:text-greenLight" onClick={() => setDropdownOpen(false) &&  navigate('/login')}>
-              Login
-            </Link>
+        <div className="absolute top-11 right-24 mt-2 bg-greenDark border border-greenDark shadow-lg rounded-md z-20 p-5">
+          <div className="flex flex-col p-2 text-white space-y-2">
+              { !user &&
+  
+               ( 
+                <div>
+                <Link to="/login" className= "block text-white hover:text-greenLight mb-3" onClick={() => setDropdownOpen(false) &&  navigate('/login')}>
+                Login
+              </Link>
+              
+                <Link to={'/profile'}>My Account</Link>
+                
+        
+              </div>
+  
+              )
+              }
+            { user && ( <div>
+
             <button
-              className="block text-white hover:text-opacity-75 text-left"
+              className="block text-white hover:text-opacity-75 text-left mb-3"
               onClick={handleLogout}
             >
               Logout
             </button>
+            <Link to={'/profile'} className=' text-white hover:text-opacity-75'>My Account</Link>
+            </div>
+            ) }
+
+
+
+          
           </div>
         </div>
       )}
@@ -197,47 +229,15 @@ if(isOpen){
 </div>
 
 
-      {showSearch && (
-      <div className=' h-auto flex justify-center items-center  fixed w-full '>
-            <input
-              type="text"
-              value={search}
-              onChange={handleSearchChange}
-              className=" p-2 md:p-1 border rounded-md  bg-greenDark text-white"
-
-              placeholder="Search products..."
-            />
-      </div>
-       )}
+      {showSearch &&<Search  setShowSearch ={setShowSearch}  showSearch={showSearch}  /> //passing the setShowSearch for closing the search when clicking the cross icon 
+        
+       }
     </nav>
 
   );
  }
 
  export default Nav
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

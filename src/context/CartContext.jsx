@@ -35,32 +35,42 @@
 
 
 import axios from 'axios';
-import React, { createContext, useState,useEffect } from 'react';
+import React, { createContext, useState,useEffect ,useMemo } from 'react';
 export const CartDetails = createContext();
+
 export const CartContext = ({ children }) => {
 
   // this is for cartItems of the user 
   const [user , setUser] = useState({});
   const [cartItems, setCartItems] = useState([]);
-
+  const [wishlist , setWishList] = useState([]);
 
   
+
+
+  useEffect(() => {
+    const userEmail = localStorage.getItem('email');
+    if (userEmail) {
+      fetchUser(userEmail);
+    }
+  }, []); // Run once when the component mount initially
  
  const fetchUser = async (userEmail) => {
   if (userEmail) {
       try {
           const response = await axios.get(`http://localhost:3001/users?email=${userEmail}`);
           const userData = response.data[0];
-
-          if (userData) {
-               console.log("User Data:", userData);
+          
+          // if (userData) {
+              //  console.log("User Data:", userData);
               setUser(userData);
-              
-              const userCartItems = userData.cart || [];
-              setCartItems(userCartItems); // Set cart items directly
-          } else {
-              console.log("No user found for this email.");
-          }
+              setCartItems(userData.cart); // Set cart items directly
+              setWishList(userData.whishlist  ) ;
+              console.log("useEffect wishlist " , wishlist); 
+              console.log("useEffect cart Items " , cartItems);
+          // } else {
+          //     console.log("No user found for this email.");
+          // }
       } catch (error) {
           console.error('Error fetching user data:', error);
       }
@@ -69,45 +79,17 @@ export const CartContext = ({ children }) => {
   }
 };
 
-useEffect(() => {
-  const userEmail = localStorage.getItem('email');
-  fetchUser(userEmail);
-}, []); // Run once when the component mount initially
+
 
 // since we are updating cartItems retriving from db  action that updates cartItems, we need seperate useEfeect to render it 
 useEffect(() => {
   if (user) {
       // Assuming 'user' is updated based on user actions
       setCartItems(user.cart || []);
-      console.log(user)
+      setWishList(user.whishlist || []  ) ;
   }
 }, [user]); // Run when the user  changes 
     
-
-
-  // const addItem = async (item,quantity) => {
-  //   try{
-      
-  //     // const userEmail = localStorage.getItem('email')
-  //     // console.log("this is email",userEmail);
-
-  //     // setCartItems((prevItems) => [...prevItems, item]);
-      
-  //     // console.log("this is cart state",cartItems);
-      
-  //     const newcart = [...cartItems]
-  //     newcart.push({item})
-  //     const userId = localStorage.getItem("id")
-      
-  //     const response=await axios.patch(`http://localhost:3001/users/${userId}`, {cart: newcart});
-  //     // console.log("this is third item s", cartItems);
-  //     console.log(response)
-  //     setCartItems(newcart)
-  //   }
-  //   catch(error){
-  //     console.log(error.message);
-  //   }
-  // };
 
 
 
@@ -203,7 +185,7 @@ useEffect(() => {
   // Update the state
   setCartItems(updatedCart);
 
-  // Update the backend
+  // Update the db
   try {
     const userId = localStorage.getItem("id");
     await axios.patch(`http://localhost:3001/users/${userId}`, { cart: updatedCart });
@@ -212,10 +194,127 @@ useEffect(() => {
   }
 };
 
+
+// const addToWishlist = async (product) => {
+//   const newWishlist = [...wishlist]
+//   const existingItem = newWishlist.find((item) => item.id == product.id)
+
+//   if(!existingItem){
+//     newWishlist.push(product);
+//     setWishList(newWishlist)
+   
+//     try {
+//       const userId = localStorage.getItem("id");
+//       await axios.patch(`http://localhost:3001/users/${userId}`, { whishlist: newWishlist });
+//     } catch (error) {
+//       console.log(error.message);
+//     }
+//   }
+
+
+
+  // try {
+  //   console.log(product);
+  //   // Check if the product is already in the wishlist
+  //    if (!wishlist.find(item => item.id === product.id)) {
+
+  //     const newWhishList=[...wishlist,product]
+      
+  //     const userId = localStorage.getItem("id");
+  //    const whishListResponse=await axios.patch(`http://localhost:3001/users/${userId}`,{ whishlist: newWhishList });
+  //     if(whishListResponse.status>=200){
+
+  //       setWishList([...whishListResponse.data.whishlist])
+  //       console.log(whishListResponse.data.whishlist)
+  //     }
+  
+
+
+    
+     
+
+  //   //  console.log("added" ,newWishList );
+
+     
+    
+  //    } else {
+  //      console.log("Item already in wishlist");
+  //    }
+  // } catch (error) {
+  //   console.log(error.message);
+  // }
+  // console.log(wishlist)
+// };
+
+
+
+const addToWishlist = async (product) => {
+  try {
+    const userId = localStorage.getItem("id");
+
+    const { data: user } = await axios.get(`http://localhost:3001/users/${userId}`);
+    
+    const currentWishlist = user.whishlist || [];
+
+    const existingItem = currentWishlist.find((item) => item.id === product.id);
+
+    if (!existingItem) {
+      const updatedWishlist = [...currentWishlist, product];
+      setWishList(updatedWishlist);
+
+      await axios.patch(`http://localhost:3001/users/${userId}`, { whishlist: updatedWishlist });
+    }
+  } catch (error) {
+    console.error("Error adding to wishlist:", error.message);
+  }
+};
+
+
+// const addToWishlist = async (product) => {
+//   try {
+//     const userId = localStorage.getItem("id");
+
+//     // Use the existing wishlist from state instead of refetching user data
+//     const existingItem = wishlist.find((item) => item.id === product.id);
+
+//     if (!existingItem) {
+//       const updatedWishlist = [...wishlist, product];
+//       setWishList(updatedWishlist); // Update local state
+
+//       // Update the wishlist in the backend
+//       await axios.patch(`http://localhost:3001/users/${userId}`, { 
+//         whishlist: updatedWishlist 
+//       });
+
+//       console.log("Wishlist updated:", updatedWishlist);
+//     }
+//   } catch (error) {
+//     console.error("Error adding to wishlist:", error.message);
+//   }
+// };
+
+
+
+
+const contextValue = useMemo(() => ({
+  cartItems,
+  user,
+  wishlist,
+  addItem,
+  removeItem,
+  clearCart,
+  fetchUser,
+  incrementItem,
+  decrementItem,
+  addToWishlist,
+  setCartItems,
+  setUser,
+}), [cartItems, user]); 
+
   
 
   return (
-    <CartDetails.Provider value={{ cartItems,user, addItem, removeItem, clearCart, fetchUser , incrementItem ,decrementItem }}>
+    <CartDetails.Provider value={contextValue}>
       {children}
     </CartDetails.Provider>
   );

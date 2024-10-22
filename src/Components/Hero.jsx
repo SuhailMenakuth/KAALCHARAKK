@@ -18,9 +18,6 @@ const Hero = () => {
   return (
     <div className='w-full h-auto relative  '>
      
-
-
-
       {/* Banner Section */}
       <div
         style={{ backgroundImage: 'url("/assets/images/Banner.webp")'}}
