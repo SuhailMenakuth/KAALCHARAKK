@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState  } from 'react'
 import { Link , useParams } from 'react-router-dom'
 import { ProductDetails } from '../context/ProductContext'
 import { Nav } from '../Components';
+import { CartDetails } from '../context/CartContext';
 
 
 
@@ -12,10 +13,23 @@ const Product = () => {
 
   const {id}  = useParams();
   const {products} = useContext(ProductDetails);
+  const { addItem}=useContext(CartDetails)
+  
   const product =  products.find((product)=> product.id == id);
 
 console.log(id);  
 console.log(product);
+
+const handleclick = (product) => {
+    const isUserEmpty = localStorage.getItem('id');
+    if(!isUserEmpty){
+      navigate('/login');
+    }
+    else{
+
+      addItem(product);
+    }
+  };
 
 
    
@@ -63,7 +77,9 @@ console.log(product);
             <div className='wishlisticon w-[20%] h-12 border border-greenDark rounded-md'  >
               <h1 className='text-center'>love</h1>
             </div>
-            <button className='h-12 w-[80%] bg-greenDark text-white ml-3 rounded-md' >ADD TO SHOPPING CART</button>
+            <button className='h-12 w-[80%] bg-greenDark text-white ml-3 rounded-md' 
+               onClick={()=>handleclick(product)}
+            >ADD TO SHOPPING CART</button>
 
           </div>
 

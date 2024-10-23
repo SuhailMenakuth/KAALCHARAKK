@@ -9,12 +9,10 @@ const Profile = () => {
  
  
  useEffect(()=>{
-   
    const Id = localStorage.getItem('id');
   if(!Id){
     navigate('/');
   }
-
 },[user]);
  
   // logout 

@@ -3,8 +3,11 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import UserOrdersModal from './UserOrdersModal';
 import { admin } from '../context/AdminContext';
+import { useNavigate } from 'react-router-dom';
+
 
 const AdminUserManagement = () => {
+  const navigate = useNavigate();
  const {users, setUsers,selectedUser, setSelectedUser , fetchUserOrders,toggleBlockUser,closeModal,orders, setOrders,isModalOpen, setIsModalOpen} =  useContext(admin);
   // const [users, setUsers] = useState([]);
   // const [selectedUser, setSelectedUser] = useState(null);
@@ -52,8 +55,17 @@ const AdminUserManagement = () => {
   // };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4" >
       <h2 className="text-2xl font-bold mb-4">User Management</h2>
+
+      <button 
+          className='mb-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"'
+          onClick={()=> navigate('/admin')}
+          >
+             Dashboard
+      </button>
+
+      
 
       <table className="w-full table-auto border-collapse border border-gray-300 mb-6">
         <thead>

@@ -3,8 +3,11 @@ import axios from 'axios';
 import AddProductModal from './AddProductModal'
 import EditModal from './EditModal';
 import { admin } from '../context/AdminContext';
+import { useNavigate } from 'react-router-dom';
 
-const AdminProductManagement = () => {
+
+const AdminProductManagement = ({ref}) => {
+  const navigate = useNavigate();
   const{products,addProduct,editProduct,deleteProduct} = useContext(admin);
   // const [products, setProducts] = useState([]);
   const [isAddModalOpen, setAddModalOpen] = useState(false);
@@ -54,7 +57,7 @@ const AdminProductManagement = () => {
   // };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4" >
 
       <div className='sticky top-0 bg-white'>
       <h2 className="text-2xl font-bold mb-4">Product Management</h2>
@@ -64,6 +67,12 @@ const AdminProductManagement = () => {
 >
   Add New Product
 </button>
+
+<button 
+className='ml-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"'
+onClick={()=> navigate('/admin')}
+>
+  Dashboard</button>
   </div>
 
       <table className="w-full table-auto border-collapse border border-gray-300">

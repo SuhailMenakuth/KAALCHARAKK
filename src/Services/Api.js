@@ -44,40 +44,34 @@ export const existingUser = async (checkingEmail)=>{
     }catch(error){
         console.error('errror in checking registered email');
         throw error;
-    }
-   
+    }  
 }
 
 
 
-                
+     
+
+
+
  export const loginUser = async ({email,password})=>{
 
 try{
-
-
     const response = await axios.get(`http://localhost:3001/users?email=${email}`);
     //const  user=response.data
-    console.log("Api response",response);
-    
+    console.log("Api response",response); 
    const user = response.data[0]; // Assuming only one user per email
-   localStorage.setItem("id",user.id)
- 
+   localStorage.setItem("id",user.id);
+   localStorage.setItem("email",user.email);
    if (!user) {
-     throw new Error("user not found");
-     
+     throw new Error("user not found"); 
    }
  
    // Comparing  the entered password with the stored hashed password
-   const isPasswordValid = await bcrypt.compare(password, user.password);
- 
+   const isPasswordValid = await bcrypt.compare(password, user.password); 
    if (!isPasswordValid) {
-     throw new Error("wrong password");
-     
+     throw new Error("wrong password");   
    }
- 
    return user; // Successful login
-   
 }
 
 catch(error){

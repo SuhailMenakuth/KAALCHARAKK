@@ -26,8 +26,9 @@ export const ProductContext = ({ children }) => {
             }
         };
         fetchProducts();
-    }, []);
+    }, [products]);
 
+   
 
 
 

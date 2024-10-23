@@ -60,17 +60,11 @@ export const CartContext = ({ children }) => {
       try {
           const response = await axios.get(`http://localhost:3001/users?email=${userEmail}`);
           const userData = response.data[0];
-          
-          // if (userData) {
-              //  console.log("User Data:", userData);
               setUser(userData);
               setCartItems(userData.cart); // Set cart items directly
               setWishList(userData.whishlist  ) ;
               console.log("useEffect wishlist " , wishlist); 
               console.log("useEffect cart Items " , cartItems);
-          // } else {
-          //     console.log("No user found for this email.");
-          // }
       } catch (error) {
           console.error('Error fetching user data:', error);
       }
@@ -90,9 +84,6 @@ useEffect(() => {
   }
 }, [user]); // Run when the user  changes 
     
-
-
-
   const addItem = async (newItem, quantity = 1) => {
     try {
       const existingCartItem = cartItems.find(cartItem => cartItem.item.product.id === newItem.id);
@@ -123,10 +114,6 @@ useEffect(() => {
     }
   };
   
-
-
-
-
   const removeItem = async (itemId) => {
     const updatedCart = cartItems.filter(cartItem => cartItem.item.product.id !== itemId); //filtering with id 
     
@@ -194,60 +181,6 @@ useEffect(() => {
   }
 };
 
-
-// const addToWishlist = async (product) => {
-//   const newWishlist = [...wishlist]
-//   const existingItem = newWishlist.find((item) => item.id == product.id)
-
-//   if(!existingItem){
-//     newWishlist.push(product);
-//     setWishList(newWishlist)
-   
-//     try {
-//       const userId = localStorage.getItem("id");
-//       await axios.patch(`http://localhost:3001/users/${userId}`, { whishlist: newWishlist });
-//     } catch (error) {
-//       console.log(error.message);
-//     }
-//   }
-
-
-
-  // try {
-  //   console.log(product);
-  //   // Check if the product is already in the wishlist
-  //    if (!wishlist.find(item => item.id === product.id)) {
-
-  //     const newWhishList=[...wishlist,product]
-      
-  //     const userId = localStorage.getItem("id");
-  //    const whishListResponse=await axios.patch(`http://localhost:3001/users/${userId}`,{ whishlist: newWhishList });
-  //     if(whishListResponse.status>=200){
-
-  //       setWishList([...whishListResponse.data.whishlist])
-  //       console.log(whishListResponse.data.whishlist)
-  //     }
-  
-
-
-    
-     
-
-  //   //  console.log("added" ,newWishList );
-
-     
-    
-  //    } else {
-  //      console.log("Item already in wishlist");
-  //    }
-  // } catch (error) {
-  //   console.log(error.message);
-  // }
-  // console.log(wishlist)
-// };
-
-
-
 const addToWishlist = async (product) => {
   try {
     const userId = localStorage.getItem("id");
@@ -268,32 +201,6 @@ const addToWishlist = async (product) => {
     console.error("Error adding to wishlist:", error.message);
   }
 };
-
-
-// const addToWishlist = async (product) => {
-//   try {
-//     const userId = localStorage.getItem("id");
-
-//     // Use the existing wishlist from state instead of refetching user data
-//     const existingItem = wishlist.find((item) => item.id === product.id);
-
-//     if (!existingItem) {
-//       const updatedWishlist = [...wishlist, product];
-//       setWishList(updatedWishlist); // Update local state
-
-//       // Update the wishlist in the backend
-//       await axios.patch(`http://localhost:3001/users/${userId}`, { 
-//         whishlist: updatedWishlist 
-//       });
-
-//       console.log("Wishlist updated:", updatedWishlist);
-//     }
-//   } catch (error) {
-//     console.error("Error adding to wishlist:", error.message);
-//   }
-// };
-
-
 
 
 const contextValue = useMemo(() => ({

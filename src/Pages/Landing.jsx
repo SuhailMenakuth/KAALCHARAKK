@@ -32,7 +32,7 @@ import { CartDetails } from '../context/CartContext';
 
 const Landing = () => {
   const { products } = useContext(ProductDetails);
-  const {fetchUser , cartItems} = useContext(CartDetails);
+  const {fetchUser } = useContext(CartDetails);
   const [filter, setFilter] = useState('');
   const [searchQuery, setSearchQuery] = useState(''); // State for search query
 
@@ -42,7 +42,7 @@ const Landing = () => {
     if(userEmail){
       fetchUser(userEmail);
     }
-  }, [cartItems]);
+  }, []);
 
 
 

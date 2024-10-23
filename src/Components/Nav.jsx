@@ -1,14 +1,15 @@
+
 import React, { useContext, useState,useEffect,useRef } from 'react'
 
 import { Link, useNavigate } from 'react-router-dom';
 import { CartDetails } from '../context/CartContext';
-import { ProductDetails } from '../context/ProductContext';
-import ProductCard from './ProductCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';              
 import 'swiper/css/navigation';    
 import 'swiper/css/pagination';
 import Search from './Search';
+ import { toast } from 'react-toastify'; 
+ import 'react-toastify/dist/ReactToastify.css';  
 
 
 
@@ -49,14 +50,14 @@ const Nav = ({ setFilter }) => {
   
   // logout 
   const handleLogout = () => {
-    localStorage.removeItem('id'); 
-    localStorage.removeItem('email'); 
-    setCartItems([]);
-    setDropdownOpen(false);
-
-    // navigate('/login'); 
-  };
-  
+         localStorage.removeItem('id');
+        localStorage.removeItem('email');
+        setCartItems([]); // Clear cart items
+       setDropdownOpen(false);
+         setUser(null);
+        toast.success('Logout successful!', { position: 'top-right', autoClose: 3000 }); // Toast on logout
+         navigate('/login'); // Navigate to login
+       };
 
 
 
@@ -130,32 +131,27 @@ const Nav = ({ setFilter }) => {
       {dropdownOpen && (
         <div className="absolute top-11 right-24 mt-2 bg-greenDark border border-greenDark shadow-lg rounded-md z-20 p-5">
           <div className="flex flex-col p-2 text-white space-y-2">
-              { !user &&
-  
-               ( 
-                <div>
-                <Link to="/login" className= "block text-white hover:text-greenLight mb-3" onClick={() => setDropdownOpen(false) &&  navigate('/login')}>
+          {!user ? (
+              <Link
+                 to="/login"
+               className="block text-white hover:text-greenLight mb-3"
+                onClick={() => setDropdownOpen(false)}
+              >
                 Login
               </Link>
-              
-                <Link to={'/profile'}>My Account</Link>
-                
-        
-              </div>
-  
-              )
-              }
-            { user && ( <div>
-
-            <button
-              className="block text-white hover:text-opacity-75 text-left mb-3"
-              onClick={handleLogout}
-            >
-              Logout
-            </button>
-            <Link to={'/profile'} className=' text-white hover:text-opacity-75'>My Account</Link>
-            </div>
-            ) }
+            ) : (
+              <>
+                <button
+                  className="block text-white hover:text-opacity-75 text-left mb-3"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
+                <Link to="/profile" className="text-white hover:text-opacity-75">
+                  My Account
+                </Link>
+              </>
+            )}
 
 
 
@@ -238,27 +234,4 @@ const Nav = ({ setFilter }) => {
  }
 
  export default Nav
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

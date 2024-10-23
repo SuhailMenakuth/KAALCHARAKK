@@ -7,6 +7,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup'; // For form validation
 import axios from 'axios';
 import Modal from 'react-modal';
+import { ProductDetails } from '../context/ProductContext';
 
 
 
@@ -40,6 +41,7 @@ const customStyles = {
 
 const Checkout = () => {
   const { cartItems ,user,clearCart } = useContext(CartDetails);
+  const {setProducts} = useContext(ProductDetails);
   const [isModalOpen, setIsModalOpen] = useState(false); 
   const navigate = useNavigate();
   const [initialValues, setInitialValues] = useState({
@@ -65,29 +67,41 @@ const Checkout = () => {
     }
   }, [user,cartItems]);
 
+  
 
+
+
+  
+  
   const updateProductStocksAndSold = async () => {
     try {
       const updatePromises = cartItems.map((cartItem) => {
         const productId = cartItem.item.product.id;
         const updatedStock = cartItem.item.product.stock - cartItem.item.quantity ;
         const UpdatedSold = cartItem.item.product.sold + cartItem.item.quantity;
-  
-        return axios.put(`http://localhost:3001/products/${productId}`, {
+        
+        return axios.patch(`http://localhost:3001/products/${productId}`, {
           ...cartItem.item.product,
-           stock: updatedStock,
-           sold: UpdatedSold,
+          stock: updatedStock,
+          sold: UpdatedSold,
         });
       });
-  
-      const response = await Promise.all(updatePromises); // Execute all updates in parallel
-      console.log("promises reaposnse" , response);
+      
+      const response = await Promise.all(updatePromises); 
+      
+      // const updateproducts = () =>{setProducts()
+
+
+      // }
+
+      console.log("promises reaposnse" , response.data);
       console.log('All product stocks updated successfully.');
     } catch (error) {
       console.error('Error updating product stock:', error);
     }
   };
 
+  
  
   
   
@@ -108,7 +122,7 @@ const handleSubmit = async (values) => {
       paymentMethod: values.paymentMethod,
       orderDate: new Date().toLocaleDateString(),
     };
-    // Prepare the new address object
+    // Prepare the new address object for the adress in the user
     const newAddress = {
       firstName: values.firstName,
       lastName: values.lastName,
@@ -126,6 +140,8 @@ const handleSubmit = async (values) => {
       address: [...user.address, newAddress], // Add new address to existing addresses
       cart: [], // Clear the cart after checkout
     };
+
+    
     // Make a pTCH request to update the user's data in the JSON server
     await axios.patch(`http://localhost:3001/users/${user.id}`, updatedUser);
     await updateProductStocksAndSold();
