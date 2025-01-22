@@ -24,28 +24,35 @@ import { registrationConstans } from '../Constants/index';
 import { registerUser, existingUser } from '../Services/Api';
 import { v4 as uuidv4 } from 'uuid';
 import Whishlist from './Whishlist';
+import { useDispatch } from 'react-redux';
+import { userRegisteration } from '../Features/AuthSlice';
 
 const initialValues = {
-    fname: "",
-    lname: "",
+    firstName: "",
+    lastName: "",
     email: "",
+    phone: "",
     password: "",
-    cpassword: ""
+    cpassword:""
 };
 
 const signupValidation = Yup.object({
-    fname: Yup.string().required("please enter First Name"),
-    lname: Yup.string().required("please enter Last Name"),
+    firstName: Yup.string().required("please enter First Name"),
+    lastName: Yup.string().required("please enter Last Name"),
     email: Yup.string().email("please Enter valid Email").required("please enter Email"),
-    password: Yup.string().min(8).max(15).required("Please enter Password"),
+    phone:Yup.string().required("please enter a valid phone number").length(10),
+    password: Yup.string().min(8).max(15).matches(/[A-Z]/).matches(/[a-z]/).matches(/[!@#$%^&*(),.?":{}|<>]/).required("Please enter Password"),
     cpassword: Yup.string().oneOf([Yup.ref('password'), null], "Passwords must match").required("Confirm Password is required"),
 });
 
 const Signup = () => {
     
-    const [activeDiv, setActiveDiv] = useState(null); // this state is for checking mr and ms
-    const [emailExists, setEmailExists] = useState(false);  // New state to track email existence
+    // const [activeDiv, setActiveDiv] = useState(null); // this state is for checking mr and ms
+     const [emailExists, setEmailExists] = useState(false);  // New state to track email existence
     const navigate = useNavigate();
+
+   const dispatch =  useDispatch();
+
 
 
 
@@ -53,38 +60,42 @@ const Signup = () => {
 
     const handleSubmit = async (values) => {
         try {
-            const userId = uuidv4();
-            const { fname, lname, email, password } = values;
+            // const userId = uuidv4();
+            const { firstName, lastName, email, phone, password } = values;
             
             const userData = {
-                id: userId,
-                fname,
-                lname,
+                firstName,
+                lastName,
                 email,
-                password,
-                title: activeDiv,
-                isBlocked: false,
-                cart : [],
-                whishlist : [],
-                orders : [],
-                address : [],
+                phone,
+                passwordHash: password,
+                
             };
 
-            // Check if the email already exists
-            const existingUsersResponse = await existingUser(email);
-            if (existingUsersResponse) {
-                setEmailExists(true);  // Set error state if email exists // for not display the  error message 
-            } else {
-                setEmailExists(false); // Reset error state  if the email is unique nothing need to display
-                const response = await registerUser(userData);
-                console.log('User registered:', response);
+          const response = await dispatch(userRegisteration(userData)).unwrap();
+          console.log(response);
+
+          
+
+            
+
+
+            // // Check if the email already exists
+            // const existingUsersResponse = await existingUser(email);
+            // if (existingUsersResponse) {
+            //     setEmailExists(true);  // Set error state if email exists // for not display the  error message 
+            // } else {
+            //     setEmailExists(false); // Reset error state  if the email is unique nothing need to display
+            //     const response = await registerUser(userData);
+            //     console.log('User registered:', response);
 
                 //navigating to login 
-                navigate('/login')
+                // navigate('/login')
                 
-            }
+            // }
         } catch (error) {
-            console.error('Registration failed:', error);
+            setEmailExists(true);
+            console.log('Registration failed:', error);
         }
     };
 
@@ -109,7 +120,7 @@ const Signup = () => {
             </div>
 
             {/* Signup form */}
-            <div className='flex justify-center items-center lg:w-1/2 bg-greenDark h-screen'>
+            <div className='flex justify-center items-center lg:w-1/2 bg-slate-100 h-screen'>
                 <div className='w-full h-4/5 rounded-lg p-6 flex flex-col items-center justify-center'>
                     <div className='w-full h-36 flex flex-col justify-center mb-10'>
                         <h1 className='text-center font-montserrat font-bold text-greenDark text-2xl'>CREATE AN ACCOUNT</h1>
@@ -131,7 +142,7 @@ const Signup = () => {
 
 
                    {/* toggle div this is for mr and ms */}
-                    <ToggleButtons activeDiv={activeDiv} setActiveDiv={setActiveDiv} />  
+                    {/* <ToggleButtons activeDiv={activeDiv} setActiveDiv={setActiveDiv} />   */}
                     <Formik
                         initialValues={initialValues}
                         validationSchema={signupValidation}
@@ -141,38 +152,44 @@ const Signup = () => {
                             <Form>
                                 <Field
                                     type="text"
-                                    name="fname"
+                                    name="firstName"
                                     placeholder="First name"
-                                    className={`border border-gold w-full mt-4 mb-4 p-2 ${errors.fname && touched.fname ? 'border-red-500' : ''}`}
+                                    className={`border border-greenDark w-full mt-4 mb-4 p-2 ${errors.firstName && touched.firstName ? 'border-red-500' : ''}`}
                                 />
                                 <Field
                                     type="text"
-                                    name="lname"
+                                    name="lastName"
                                     placeholder="Last name"
-                                    className={`border border-gold w-full mb-4 p-2 ${errors.lname && touched.lname ? 'border-red-500' : ''}`}
+                                    className={`border border-greenDark w-full mb-4 p-2 ${errors.lastName && touched.lastName ? 'border-red-500' : ''}`}
                                 />
                                 <Field
                                     type="email"
                                     name="email"
                                     placeholder="Email address"
-                                    className={`border border-gold w-full mb-4 p-2 ${errors.email && touched.email ? 'border-red-500' : ''}`}
+                                    className={`border border-greenDark w-full mb-4 p-2 ${errors.email && touched.email ? 'border-red-500' : ''}`}
+                                />
+                                <Field
+                                    type="text"
+                                    name="phone"
+                                    placeholder="Phone number"
+                                    className={`border border-greenDark w-full mb-4 p-2 ${errors.phone && touched.phone ? 'border-red-500' : ''}`}
                                 />
                                 <Field
                                     type="password"
                                     name="password"
                                     placeholder="Password"
-                                    className={`border border-gold w-full mb-4 p-2 ${errors.password && touched.password ? 'border-red-500' : ''}`}
+                                    className={`border border-greenDark w-full mb-4 p-2 ${errors.password && touched.password ? 'border-red-500' : ''}`}
                                 />
                                 <Field
                                     type="password"
                                     name="cpassword"
                                     placeholder="Confirm password"
-                                    className={`border border-gold w-full mb-4 p-2 ${errors.cpassword && touched.cpassword ? 'border-red-500' : ''}`}
+                                    className={`border border-greenDark w-full mb-4 p-2 ${errors.cpassword && touched.cpassword ? 'border-red-500' : ''}`}
                                 />
                                 <button
                                     type="submit"
                                     // className="  w-full p-2 bg-gold text-white rounded hover:bg-greenLight"
-                                    className="relative w-full p-2 bg-greenLight text-white rounded bg-gradient-to-b from-go"
+                                    className="relative w-full p-2 bg-greenDark text-white rounded bg-gradient-to-b from-go"
 
                                 >
                                     Create An Account

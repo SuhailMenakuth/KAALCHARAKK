@@ -11,6 +11,7 @@
     "api": "json-server --watch src/Database/db.json --port 3001"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.5.0",
     "axios": "^1.7.7",
     "bcryptjs": "^2.4.3",
     "chart.js": "^4.4.5",
@@ -19,6 +20,7 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
     "react-modal": "^3.16.1",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^6.26.2",
     "react-slick": "^0.30.2",
     "react-toastify": "^10.0.6",

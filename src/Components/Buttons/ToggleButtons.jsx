@@ -20,6 +20,33 @@ const ToggleButtons = ({ activeDiv, setActiveDiv }) => {
         <span className={`font-bold ${activeDiv === 'MS' ? 'text-black' : 'text-gold'}`}>MS.</span> 
       </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   );
 };
 

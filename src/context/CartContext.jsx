@@ -36,8 +36,8 @@
 
 import axios from 'axios';
 import React, { createContext, useState,useEffect ,useMemo } from 'react';
-export const CartDetails = createContext();
 
+export const CartDetails = createContext();
 export const CartContext = ({ children }) => {
 
   // this is for cartItems of the user 

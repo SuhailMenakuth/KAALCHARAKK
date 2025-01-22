@@ -9,7 +9,7 @@ export default {
       colors:{
         gold: '#fff',
         greenDark:  '#2d4537',
-        greenLight: '#798645',
+        greenLight: '#578263',
       },
       fontFamily :{
         montserrat: ['Montserrat', 'sans-serif'],

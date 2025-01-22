@@ -22,45 +22,42 @@ import ProtectedRoute from './context/ProtectedRoute';
 
 const App = () => {
   return (
-
-
-
     <Router>
-      <ProductContext>
-        <CartContext>
-          <AdminContext>
+      {/* <ProductContext> */}
+        {/* <CartContext> */}
+          {/* <AdminContext> */}
             <Routes>
-              <Route path='/' element={<Landing />} />
+              {/* <Route path='/' element={<Landing />} /> */}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path='/hero' element={<Hero />} />
               {/* landinginte ulill aavanam product card  */}
-              <Route path='/productcard' element={<ProductCard />} />
-              <Route path='/about' element={<About />} />
-              <Route path='/nav' element={<Nav />} />
-              <Route path='/cart' element={<Cart />} />
-              <Route path='/checkout' element={<Checkout />} />
-              <Route path='/footer' element={<Footer />} />
-              <Route path='/search' element={<Search />} />
-              <Route path='/product/:id' element={<Product />} />
-              <Route path='/filter' element={<Filter />} />
-              <Route path='/wishlist' element={<Wishlist />} />
-              <Route path='/profile' element={<Profile />} />
+              {/* <Route path='/productcard' element={<ProductCard />} /> */}
+              {/* <Route path='/about' element={<About />} /> */}
+              {/* <Route path='/nav' element={<Nav />} /> */}
+              {/* <Route path='/cart' element={<Cart />} /> */}
+              {/* <Route path='/checkout' element={<Checkout />} /> */}
+              {/* <Route path='/footer' element={<Footer />} /> */}
+              {/* <Route path='/search' element={<Search />} /> */}
+              {/* <Route path='/product/:id' element={<Product />} /> */}
+              {/* <Route path='/filter' element={<Filter />} /> */}
+              {/* <Route path='/wishlist' element={<Wishlist />} /> */}
+              {/* <Route path='/profile' element={<Profile />} /> */}
               {/* admin */}
-              <Route path='/admin' element={
-                <ProtectedRoute>
-                  <AdminDashboard />
-                </ProtectedRoute>
-              }>
+              {/* <Route path='/admin' element={ */}
+                {/* <ProtectedRoute> */}
+                  {/* <AdminDashboard /> */}
+                {/* </ProtectedRoute> */}
+              {/* }> */}
                 {/* Render the Admin Dasrd initially */}
-                <Route index element={<AdminDashboard />} />
-                <Route path='productManagement' element={<AdminProductManagement />} />
-                <Route path='userManagement' element={<AdminUserManagement />} />
-              </Route>
+                {/* <Route index element={<AdminDashboard />} /> */}
+                {/* <Route path='productManagement' element={<AdminProductManagement />} /> */}
+                {/* <Route path='userManagement' element={<AdminUserManagement />} /> */}
+              {/* </Route> */}
             </Routes>
-          </AdminContext>
-        </CartContext>
-      </ProductContext>
+          {/* </AdminContext> */}
+        {/* </CartContext> */}
+      {/* </ProductContext> */}
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
     </Router>
   );

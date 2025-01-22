@@ -186,8 +186,85 @@
       "email": "abc@gmail.com",
       "password": "$2a$10$uMA1kaUhS9F5IfK6wDNVCuu3J.lqIjXIOVt6LNXk0SKfFDvYPI39O",
       "title": "MR",
-      "isBlocked": true,
-      "cart": [],
+      "isBlocked": false,
+      "cart": [
+        {
+          "item": {
+            "product": {
+              "id": "m-9-tyu",
+              "category": "men",
+              "name": "Manchest Red",
+              "image": "/assets/images/sandals-men%20(8).webp",
+              "price": 18999,
+              "type": "sandals",
+              "size": 7,
+              "style": "manchester",
+              "offer": "10%",
+              "title": "Hot Item",
+              "stock": 5,
+              "sold": 24
+            },
+            "quantity": 1
+          }
+        },
+        {
+          "item": {
+            "product": {
+              "id": "m-10-wer",
+              "category": "men",
+              "name": "Manchest Caramu",
+              "image": "/assets/images/sandals-men%20(9).webp",
+              "price": 23999,
+              "type": "sandals",
+              "size": 10,
+              "style": "manchester",
+              "offer": "40%",
+              "title": "Limited Edition",
+              "stock": 13,
+              "sold": 25
+            },
+            "quantity": 1
+          }
+        },
+        {
+          "item": {
+            "product": {
+              "id": "m-17-ctf",
+              "category": "Vazhthi",
+              "name": "Manchest Caramu",
+              "image": "/assets/images/sandals-men%20(17).webp",
+              "price": 18899,
+              "type": "sandals",
+              "size": 8,
+              "style": "Malappuram",
+              "offer": "20%",
+              "title": "Top Rated",
+              "stock": 12,
+              "sold": 23
+            },
+            "quantity": 2
+          }
+        },
+        {
+          "item": {
+            "product": {
+              "id": "m-18-ikm",
+              "category": "men",
+              "name": "Zibergi",
+              "image": "/assets/images/sandals-men%20(18).webp",
+              "price": 16999,
+              "type": "sandals",
+              "size": 8,
+              "style": "Montenegro",
+              "offer": "10%",
+              "title": "Limited Edition",
+              "stock": 16,
+              "sold": 17
+            },
+            "quantity": 1
+          }
+        }
+      ],
       "whishlist": [],
       "orders": [
         {
@@ -611,6 +688,39 @@
       "title": "MR",
       "isBlocked": false,
       "role": "admin"
+    },
+    {
+      "id": "4d204c1a-ef8a-4bed-b9b9-c7afda8c3db4",
+      "fname": "niyas",
+      "lname": "khan",
+      "email": "niyaskhan@gmail.com",
+      "password": "$2a$10$dbdIkFnO5gBUt5alrIzoK.sXdaOlktyYL/q0Xlzb70Muh.tQp.qWq",
+      "title": "MR",
+      "isBlocked": false,
+      "cart": [
+        {
+          "item": {
+            "product": {
+              "id": "m-18-ikm",
+              "category": "men",
+              "name": "Zibergi",
+              "image": "/assets/images/sandals-men%20(18).webp",
+              "price": 16999,
+              "type": "sandals",
+              "size": 8,
+              "style": "Montenegro",
+              "offer": "10%",
+              "title": "Limited Edition",
+              "stock": 16,
+              "sold": 17
+            },
+            "quantity": 1
+          }
+        }
+      ],
+      "whishlist": [],
+      "orders": [],
+      "address": []
     }
   ],
   "products": [

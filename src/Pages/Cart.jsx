@@ -137,7 +137,7 @@ const Cart = () => {
            <button 
            className=' w-[80%] p-4 bg-greenDark text-white font-palanquin font-bold tracking-tight '
            onClick={()=>navigate('/checkout')}
-          >CHECKOUT</button>
+           >CHECKOUT</button>
          </div>
 </div>
 </div>
