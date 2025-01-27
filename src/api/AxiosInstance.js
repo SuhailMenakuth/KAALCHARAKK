@@ -1,9 +1,38 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: import.meta.env.VITE_BASE_URL,
-    withCredentials : true
-});
+    baseURL: 'https://localhost:7003/api',
+    headers: {
+      'Content-Type': 'application/json', // Explicitly set the Content-Type
+    },
+    withCredentials: true, // Include cookies if needed
+  });
+  
+
+
+
+// axiosInstance.interceptors.request.use(
+//     (config) => {
+//         // Log config to debug request details
+//         console.log("Request Interceptor triggered");
+//         console.log("Request Config:", config);
+
+//         const accessToken = Cookies.get("accessToken"); // Retrieve access token from cookies
+//         if (accessToken) {
+//             config.headers.Authorization = `Bearer ${accessToken}`;
+//             console.log("Access Token found, adding to headers:", accessToken);
+//         } else {
+//             console.log("No Access Token found in cookies");
+//         }
+
+//         // Return config to proceed with request
+//         return config;
+//     },
+//     (error) => {
+//         console.error("Error in Request Interceptor:", error.response?.data || error.message);
+//         return Promise.reject(error);
+//     }
+// );
 
 
 let isRefreshing = false;
@@ -42,7 +71,7 @@ axiosInstance.interceptors.response.use(
             isRefreshing = true;
 
             try {
-                await axiosInstance.post("/refresh-token");
+                await axiosInstance.post("/Auth/refresh/token");
 
                 // Retry the original request after refreshing the token
                 isRefreshing = false;
@@ -57,6 +86,8 @@ axiosInstance.interceptors.response.use(
                 }
                 return Promise.reject(refreshError);
             }
+
+            
         }
 
         return Promise.reject(error);
@@ -64,3 +95,6 @@ axiosInstance.interceptors.response.use(
 );
 
 export default axiosInstance;
+
+
+

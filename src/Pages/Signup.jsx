@@ -24,8 +24,12 @@ import { registrationConstans } from '../Constants/index';
 import { registerUser, existingUser } from '../Services/Api';
 import { v4 as uuidv4 } from 'uuid';
 import Whishlist from './Whishlist';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { userRegisteration } from '../Features/AuthSlice';
+import { Loader } from '../Components';
+import Loader2 from '../Components/Loader2';
+import Loader3 from '../Components/Loader3';
+import { toast, ToastContainer } from 'react-toastify';
 
 const initialValues = {
     firstName: "",
@@ -46,14 +50,28 @@ const signupValidation = Yup.object({
 });
 
 const Signup = () => {
+
+    const [showPasswordRules, setShowPasswordRules] = useState(false);
+
+    const togglePasswordRules = () => {
+        setShowPasswordRules((prev) => !prev);
+    };
+    const passwordValidationRules = [
+        "At least 8 characters",
+        "Contains an uppercase letter",
+        "Contains a lowercase letter",
+        "Contains a special character (!@#$%^&*)",
+    ];
     
     // const [activeDiv, setActiveDiv] = useState(null); // this state is for checking mr and ms
      const [emailExists, setEmailExists] = useState(false);  // New state to track email existence
+    const[registrationError , setRegistrationError] = useState("");
     const navigate = useNavigate();
 
    const dispatch =  useDispatch();
+   const {loading} = useSelector((state) => state.auth);
 
-
+   
 
 
 
@@ -77,7 +95,8 @@ const Signup = () => {
 
           
 
-            
+            toast.success("Registration successfull");
+            navigate('/login');
 
 
             // // Check if the email already exists
@@ -90,12 +109,14 @@ const Signup = () => {
             //     console.log('User registered:', response);
 
                 //navigating to login 
-                // navigate('/login')
+               
                 
             // }
         } catch (error) {
+            toast.error(error);
             setEmailExists(true);
-            console.log('Registration failed:', error);
+             setRegistrationError(error);
+            console.log('Registration failed :', error);
         }
     };
 
@@ -118,9 +139,10 @@ const Signup = () => {
                     ))}
                 </ul>
             </div>
-
+           {loading && <Loader3 />}
             {/* Signup form */}
             <div className='flex justify-center items-center lg:w-1/2 bg-slate-100 h-screen'>
+            <ToastContainer />
                 <div className='w-full h-4/5 rounded-lg p-6 flex flex-col items-center justify-center'>
                     <div className='w-full h-36 flex flex-col justify-center mb-10'>
                         <h1 className='text-center font-montserrat font-bold text-greenDark text-2xl'>CREATE AN ACCOUNT</h1>
@@ -131,14 +153,31 @@ const Signup = () => {
                     {emailExists ?
                     <div className='w-full mb-4'>
                         <p className="text-red-500 text-sm  w-full">
-                            This email address is already associated with an account. If this account is yours, please log in.
+                            {registrationError}
+                            {/* This email address is already associated with an account. If this account is yours, please log in. */}
                         </p>
-                        </div> 
+                    </div> 
                         :
                         <div className='w-full mb-4' >
 
                         </div>
                     }
+
+                        <div className="mt-1 text-sm text-right  self-end  text-gray-500 cursor-pointer ml-2 " onClick={togglePasswordRules}>
+                            {showPasswordRules ? "Hide password rules" : "Show password rules"}
+                        </div>
+
+                        {/* Password Rules Dropdown */}
+                        {showPasswordRules && (
+                            <div className="absolute bg-white border border-gray-300 rounded shadow-lg p-3 mt-2 w-3/4 lg:w-1/4 text-sm text-gray-700">
+                                <h3 className="font-bold text-greenDark mb-2">Password must include:</h3>
+                                <ul className="list-disc pl-5">
+                                    {passwordValidationRules.map((rule, index) => (
+                                        <li key={index}>{rule}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
 
 
                    {/* toggle div this is for mr and ms */}
@@ -189,7 +228,7 @@ const Signup = () => {
                                 <button
                                     type="submit"
                                     // className="  w-full p-2 bg-gold text-white rounded hover:bg-greenLight"
-                                    className="relative w-full p-2 bg-greenDark text-white rounded bg-gradient-to-b from-go"
+                                    className="relative w-full p-2 bg-greenDark text-white font-bold rounded bg-gradient-to-b from-go"
 
                                 >
                                     Create An Account

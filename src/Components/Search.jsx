@@ -1,18 +1,21 @@
 import React, { useContext, useState ,useEffect } from 'react'
 import { ProductDetails } from '../context/ProductContext';
 import { cross } from '../assets/Icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAllProduct } from '../Features/ProductSlice';
 
 
 const Search = ({setShowSearch ,showSearch } , ref) => {
     // Toggle search input
-    const { products , handleProductClik } = useContext(ProductDetails);
+    // const { products , handleProductClik } = useContext(ProductDetails);
     const [serchinput, setSearchinput] = useState('');
     const [searchResults, setSearchResults] = useState([]);
+const {products}=useSelector((state) => state.products);
+const dispatch = useDispatch();
 
-
-    useEffect(() => {
-        setSearchResults(products);
-    }, []);
+// useEffect(() => {
+// dispatch(fetchAllProduct());
+// },[dispatch])
 
 
     const handleSearchChange = (e)=>{
@@ -25,8 +28,6 @@ const Search = ({setShowSearch ,showSearch } , ref) => {
             );
     
             setSearchResults(filteredProducts); 
-        
-
     }
     
 

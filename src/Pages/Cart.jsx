@@ -3,22 +3,31 @@ import React, { useContext, useEffect } from 'react';
 import { CartDetails } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import Nav from '../Components/Nav'
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMyCart } from '../Features/CartSlice';
+import Loader3 from '../Components/Loader3';
 // import { CartDetails } from './CartContext'; // Adjust the import based on your context file structure
 
 const Cart = () => {
   const navigate = useNavigate();
-  const { cartItems, removeItem, clearCart, incrementItem, decrementItem } = useContext(CartDetails);
+  // const { cartItems, removeItem, clearCart, incrementItem, decrementItem } = useContext(CartDetails);
 
+ const dispatch = useDispatch();
+  const {statusCode ,error, loading , cart } = useSelector((state) => state.cart);
+
+useEffect(async ()=> {
+await dispatch(fetchMyCart());
+},[dispatch])
  
 
- 
 
-
-  if (cartItems.length === 0) {
-    return <div className="text-center">Your cart is empty!</div>;
+   if (statusCode === 202) {
+     return <div className="text-center">Your cart is empty!</div>;
   }
   return (
 <div>
+
+  {loading && <Loader3 />}
 
 <Nav/>
 <div className="max-w-7xl mx-auto p-4  ">
@@ -28,7 +37,7 @@ const Cart = () => {
     SHOPPING CART
   </h1>
   <p className="inline">
-    You have <span className="font-bold">{cartItems.length} item</span> in your cart
+    You have <span className="font-bold">{cart.length} item</span> in your cart
   </p>
   </div>
   <hr />
@@ -51,8 +60,8 @@ const Cart = () => {
   </div>
 
   {/* Cart Items */}
-  {cartItems.length > 0 ? (
-    cartItems.map((cartItem, index) => (
+  {cart.length > 0 ? (
+    cart.map((cartItem, index) => (
       <div
         key={index}
         className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center mb-4 border-b pb-2"
@@ -60,43 +69,43 @@ const Cart = () => {
         {/* Product Image and Details */}
         <div className="flex items-center">
           <img
-            src={cartItem.item.product.image}
-            alt={cartItem.item.product.name}
+            src={cartItem.imageUrl}
+            alt={cartItem.name}
             className="w-24 h-24 object-cover mr-4"
           />
           <div className="product-details">
             <p className="font-semibold text-greenDark">
-              {cartItem.item.product.name}
+              {cartItem.name}
             </p>
-            <p>Size: {cartItem.item.product.size}</p>
-            <p>Category: {cartItem.item.product.category}</p>
-            <p>Type: {cartItem.item.product.type}</p>
+            
+            <p>Category: {cartItem.category}</p>
+            {/* <p>Type: {cartItem.item.product.type}</p> */}
           </div>
         </div>
 
         {/* Price and Quantity Controls */}
         <div className="flex justify-center space-x-4 items-center  p-2 rounded">
-          <p className="price">{cartItem.item.product.price}</p>
+          <p className="price">{cartItem.price}</p>
           <div className="incremen-decrement-delete flex items-center space-x-2">
             {/* Button for decrementing quantity */}
             <button
               className="bg-gray-200 px-2 rounded"
-              onClick={() => decrementItem(cartItem.item.product.id)}
+              // onClick={() =>  decrementItem(cartItem.productId) }
             >
               -
             </button>
-            <span className="mx-2">{cartItem.item.quantity}</span>
+            <span className="mx-2">{cartItem.quantity}</span>
             {/* Button for incrementing quantity */}
             <button
               className="bg-gray-200 px-2 rounded"
-              onClick={() => incrementItem(cartItem.item.product.id)}
+              // onClick={() => incrementItem(cartItem.item.product.id)}
             >
               +
             </button>
             {/* Button for deleting item */}
             <button
               className="bg-gray-200 px-2 rounded ml-2"
-              onClick={() => removeItem(cartItem.item.product.id)}
+              // onClick={() => removeItem(cartItem.item.product.id)}
             >
               DELETE
             </button>
@@ -106,7 +115,7 @@ const Cart = () => {
         {/* Subtotal */}
         <div className="text-end">
           <p className="font-semibold">
-            ₹{cartItem.item.product.price * cartItem.item.quantity}
+            ₹{cartItem.total}
           </p>
         </div>
       </div>
@@ -123,11 +132,7 @@ const Cart = () => {
     <h2 className='text-xl font-bold'>TOTAL</h2>
 
   <h2 className="text-xl font-bold">
-        {cartItems.reduce((total, cartitem) => {
-            const price = cartitem.item.product.price;
-             const quantity = cartitem.item.quantity;
-             return total = total + price * quantity;
-           }, 0)}
+        {cart.totalPrice}
    </h2>
 
 
@@ -142,7 +147,10 @@ const Cart = () => {
 </div>
 </div>
 
-  )}
+
+  )
+  // return <h1>fghjkl;kjh</h1>
+}
 
 
-export default Cart;
+ export default Cart;

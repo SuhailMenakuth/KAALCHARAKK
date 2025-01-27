@@ -1,24 +1,4 @@
-// import React,{useContext,useState} from 'react'
-// import { Hero, Nav, ProductCard } from '../Components/index'
-// import { ProductDetails } from '../context/ProductContext'
 
-// const Landing = () => {
-//     const {products} = useContext(ProductDetails);
-//     const [filter , setFilter] = useState('');
-
-//   return (
-//     <div className='w-full h-full'>
-
-//    <Nav setFilter={setFilter}/>
-//     <Hero/>   
-//     <ProductCard  catagory = {filter} />
-        
-      
-//     </div>
-//   )
-// }
-
-// export default Landing
 
 
 
@@ -29,10 +9,15 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Footer, Hero, Modal, Nav, ProductCard } from '../Components/index';
 import { ProductDetails } from '../context/ProductContext';
 import { CartDetails } from '../context/CartContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
+import Loader3 from '../Components/Loader3';
 
 const Landing = () => {
-  const { products } = useContext(ProductDetails);
-  const {fetchUser } = useContext(CartDetails);
+
+ const {loading, products} = useSelector((state) => state.products);
+  // const { products } = useContext(ProductDetails);
+  // const {fetchUser } = useContext(CartDetails);
   const [filter, setFilter] = useState('');
   const [searchQuery, setSearchQuery] = useState(''); // State for search query
 
@@ -50,6 +35,7 @@ const Landing = () => {
 
   return (
     <div className="w-full h-full flex flex-col ">
+      {loading &&  <Loader3 />}
       
       <Nav setFilter={setFilter} />
       <Hero />
