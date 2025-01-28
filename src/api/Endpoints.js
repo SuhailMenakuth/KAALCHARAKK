@@ -17,7 +17,8 @@ export const endPoints = {
         MY_CART : "/Cart/mycart",
         ADD_TO_CART : (productid) =>  "",
         INCREMENT_PRODUCT_QUANTITY :(productid) => `/Cart/increase/quantity/${productid}`,
-        DECREMENT_PRODUCT_QUANTITY : (productid) => `/Cart/decrease-quantity/${productid}`
+        DECREMENT_PRODUCT_QUANTITY : (productid) => `/Cart/decrease-quantity/${productid}`,
+        DELETE_PRODUCT : (productid) => `/Cart/delete/product/${productid}`
     },
     PROCUT : {
         GET_ALL_PRODUCTS : "/Product/all/products"

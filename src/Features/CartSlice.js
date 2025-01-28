@@ -91,6 +91,31 @@ export const decrementProductQuantity = createAsyncThunk(
 
 )
 
+export const deleteProductfromCart = createAsyncThunk(
+    "cart/deleteProduct",
+    async (productId , {rejectWithValue}) =>{
+        try{
+
+           const response = await axiosInstance.delete(
+            endPoints.CART.DELETE_PRODUCT(productId)
+           )
+           if (response.data.statusCode == 200) {
+            // return response.data.data 
+            return productId;
+        }
+        if (response.data.statusCode == 422 || 404 || 400) {
+            rejectWithValue(response.data.error);
+        }
+
+
+        }catch(error){
+            return rejectWithValue(error.message)
+        }
+    }
+)
+
+
+
 const cartSlice = createSlice({
     name: "cart",
     initialState,
@@ -174,6 +199,27 @@ const cartSlice = createSlice({
                 state.loading = false;
                 console.log(action.payload);
             })
+
+            // delete product from cart 
+            .addCase(deleteProductfromCart.pending,(state) => {
+                state.loading = true;
+                state.error = null;
+
+            } )
+            .addCase(deleteProductfromCart.fulfilled,(state,action)=>{
+                state.error = null;
+                state.loading = false; 
+                state.toastSuccessmsg = `Product deleted successfully `;
+                state.cart = state.cart.filter(p => p.productId != action.payload);
+                
+                
+            })
+            .addCase(deleteProductfromCart.rejected, (state, action) => {
+                state.error = action.payload;
+                state.loading = false;
+                console.log(action.payload);
+            })
+
     }
 
 

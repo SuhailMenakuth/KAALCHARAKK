@@ -4,7 +4,7 @@ import { CartDetails } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import Nav from '../Components/Nav'
 import { useDispatch, useSelector } from 'react-redux';
-import { decrementProductQuantity, fetchMyCart, increaseProductQuantity } from '../Features/CartSlice';
+import { decrementProductQuantity, deleteProductfromCart, fetchMyCart, increaseProductQuantity } from '../Features/CartSlice';
 import Loader3 from '../Components/Loader3';
 import { toast, ToastContainer } from 'react-toastify';
 // import { CartDetails } from './CartContext'; // Adjust the import based on your context file structure
@@ -44,7 +44,7 @@ const Cart = () => {
   }
 
   const handleDecrementQuantity = async (productId) => {
-    console.log("cccccccc",productId);
+   
     dispatch(decrementProductQuantity(productId));
     if (toastSuccessmsg) {
       console.log("toast success msg in cart component ", toastSuccessmsg);
@@ -55,6 +55,18 @@ const Cart = () => {
       toast.error(error, { position: 'top-right', autoClose: 3000 });
     }
   }
+
+const handleDelete = async (productId) => {
+  dispatch(deleteProductfromCart(productId));
+  if (toastSuccessmsg) {
+    console.log("toast success msg in cart component ", toastSuccessmsg);
+    toast.success(toastSuccessmsg, { position: 'top-right', autoClose: 3000 });
+  }
+  if (error) {
+    toast.error(error, { position: 'top-right', autoClose: 3000 });
+  }
+
+}
 
   if (statusCode === 202) {
     return <div className="text-center">Your cart is empty!</div>;
@@ -140,6 +152,7 @@ const Cart = () => {
                   {/* Button for deleting item */}
                   <button
                     className="bg-gray-200 px-2 rounded ml-2"
+                    onClick={() => handleDelete(cartItem.productId)}
                     
                   >
                     DELETE
