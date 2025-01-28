@@ -15,7 +15,9 @@ export const endPoints = {
     },
     CART: {
         MY_CART : "/Cart/mycart",
-        ADD_TO_CART : (productId) =>  ""
+        ADD_TO_CART : (productid) =>  "",
+        INCREMENT_PRODUCT_QUANTITY :(productid) => `/Cart/increase/quantity/${productid}`,
+        DECREMENT_PRODUCT_QUANTITY : (productid) => `/Cart/decrease-quantity/${productid}`
     },
     PROCUT : {
         GET_ALL_PRODUCTS : "/Product/all/products"

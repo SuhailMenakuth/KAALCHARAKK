@@ -52,7 +52,7 @@ console.log(loginData);
       // console.log(mydetails);
 
       // Success toast on login
-       toast.success('Login successful!', { position: 'top-right', autoClose: 3000 });
+       toast.success('Login successful!', { position: 'top-right', autoClose: 1500 });
        navigate('/');
 
       // Redirect based on user role or status
