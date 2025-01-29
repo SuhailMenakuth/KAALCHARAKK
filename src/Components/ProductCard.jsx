@@ -10,7 +10,8 @@ import {  useNavigate } from 'react-router-dom';
 import Product from '../Pages/Product';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllProduct } from '../Features/ProductSlice';
-
+import { addToCart } from '../Features/CartSlice';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 
@@ -22,22 +23,29 @@ const ProductCard = ({ catagory }) => {
 
 const dispacth = useDispatch();
 const {products}=useSelector((state) => state.products);
+const dispatch = useDispatch();
+const {  error, toastSuccessmsg } = useSelector((state) => state.cart);
+
 
 useEffect(() => {
 dispacth(fetchAllProduct());
 },[dispacth])
 
 // add to cart 
-  const handleclick = (product) => {
-    const isUserEmpty = localStorage.getItem('id');
-    if(!isUserEmpty){
-      navigate('/login');
-    }
-    else{
-
-      addItem(product);
-    }
-  };
+ const handleAddToCart = async (product) =>{
+  console.log(product)
+   dispatch(addToCart(product));
+   if (toastSuccessmsg) {
+     console.log("toast success msg in cart component ", toastSuccessmsg);
+     toast.success(toastSuccessmsg, { position: 'top-right', autoClose: 3000 });
+   }
+   else if (error) {
+     toast.error(error, { position: 'top-right', autoClose: 3000 });
+   }
+ 
+ 
+ }
+ 
 
 
   //add to wishlist 
@@ -474,7 +482,7 @@ dispacth(fetchAllProduct());
                   src={product.imageUrl}
                   alt={product.name}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-pointer"
-                  onClick={() => handleProductClick(product)}
+                  // onClick={() => handleProductClick(product)}
                 />
     
                 {/* Quick View Button */}

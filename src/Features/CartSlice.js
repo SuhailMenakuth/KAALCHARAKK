@@ -115,6 +115,26 @@ export const deleteProductfromCart = createAsyncThunk(
 )
 
 
+export const addToCart = createAsyncThunk(
+    "cart/addtocart",
+    async (product , {rejectWithValue}) =>{
+        try{
+            const response = await axiosInstance.post(
+                endPoints.CART.ADD_TO_CART(product.productId)
+            )
+            if (response.data.statusCode == 200) {
+                // return response.data.data 
+                return product;
+            }
+            if (response.data.statusCode == 422 || 404 || 400|| 402) {
+                rejectWithValue(response.data.error);
+            }
+        }catch(error){
+            return rejectWithValue(error.message)
+        }
+    }
+)
+
 
 const cartSlice = createSlice({
     name: "cart",
@@ -210,7 +230,7 @@ const cartSlice = createSlice({
                 state.error = null;
                 state.loading = false; 
                 state.toastSuccessmsg = `Product deleted successfully `;
-                state.cart = state.cart.filter(p => p.productId != action.payload);
+                state.cart = state.cart.filter(p => p.productId != action.payload.productId);
                 
                 
             })
@@ -220,9 +240,37 @@ const cartSlice = createSlice({
                 console.log(action.payload);
             })
 
+            //add to cart 
+            .addCase(addToCart.pending,(state) =>{
+                state.error = null;
+                state.loading = true;
+
+            })
+            .addCase(addToCart.fulfilled,(state,action)=>{
+                state.error = null;
+                state.loading =false;
+                console.log("result from addtocart ",action.payload)
+
+                const existingProduct = state.cart.findIndex(p => p.productId == action.payload.productId);
+                if(existingProduct != -1){
+                    state.cart[existingProduct].quantity +=1;
+                
+                }
+                else{
+                  
+                     state.cart.push({ ...action.payload, quantity: 1 })
+                }                state.toastSuccessmsg("cart updated successfully ",action.payload.productName )
+            
+            })
+            .addCase(addToCart.rejected, (state,action)=>{
+                state.error = action.payload;
+                state.loading = false;
+                console.log("result from addtocart rejected",action.payload)
+
+            })
     }
-
-
 })
+
+
 
 export default cartSlice.reducer;
